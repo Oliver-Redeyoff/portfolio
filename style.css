@@ -6,6 +6,10 @@
   0%{opacity: 0; padding-top: 30px;}
   100%{opacity: 1; padding-top: 0px;}
 }
+@keyframes fadeInUpMessage{
+  0%{opacity: 0; padding-top: 50px;}
+  100%{opacity: 1; padding-top: 20px;}
+}
 
 body {
   padding: 0px;
@@ -222,7 +226,8 @@ body {
   box-sizing: border-box;
   outline: none;
   border: none;
-  padding: 10px;
+  padding-top: 0px;
+  padding-left: 10px;
   padding-bottom: 5px;
   background-color: white;
   margin-left: calc(30% - 40px);
@@ -236,7 +241,7 @@ body {
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
-  animation-delay: calc(var(--animation-delay) * 3);
+  animation-delay: calc(var(--animation-delay));
 }
 .body #contact #subject:focus{
   color: rgb(75, 139, 183);
@@ -261,11 +266,11 @@ body {
   resize: none;
   transition: background-color 0.5s ease;
   background-color: white;
-  animation-name: fadeInUp;
+  animation-name: fadeInUpMessage;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
-  animation-delay: calc(var(--animation-delay) * 3);
+  animation-delay: calc(var(--animation-delay) * 2);
 }
 .body #contact #body:focus{
   color: rgb(75, 139, 183);
