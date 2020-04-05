@@ -14,7 +14,7 @@ body {
 
 .header {
   padding-top: 100px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   height: auto;
   width: 100%;
 }
@@ -53,6 +53,19 @@ body {
   margin-left: 3px;
   font-size: 120%;
 }
+@media screen and (max-width: 750px) {
+  .header #me #name h1{
+    font-size: 150%;
+  }
+  .header #me #name h2{
+    font-size: 100%;
+  }
+  .header #me img{
+    width: 75px;
+    height: 75px;
+  }
+}
+
 
 .menuWrapper {
   display: flex;
@@ -100,13 +113,17 @@ body {
   border-bottom: 1px solid rgb(194, 194, 194);
   width: 70%;
 }
+@media screen and (max-width: 750px) {
+  .header #menu #filler{
+    width: 20px;
+  }
+}
 
 
 .body{
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 100px;
 }
-
 
 .body h1{
   font-family: 'Roboto Slab', serif;
@@ -118,7 +135,7 @@ body {
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 2);
 }
-.body #row{
+.body #aboutMe #row{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,43 +149,67 @@ body {
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 3);
 }
-.body #row #image{
+.body #aboutMe #row #image{
   display: inline-block;
-  height: 100%;
+  height: 300px;
   width: 250px;
   transition: transform 0.3s;
 }
-.body #row #image:hover{
+.body #aboutMe #row #image:hover{
   transform: scale(1.1);
 }
-.body #row #spacer{
+.body #aboutMe #row #spacer{
   height: 100%;
   width: 10vw;
   background-position: red;
 }
-.body img{
+.body #aboutMe img{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 100%;
+  width: 100%;
 }
-.body #row #text{
+.body #aboutMe #row #text{
   display: inline-block;
-  height: 100%;
+  height: 300px;
   width: 400px;
 }
-.body #row #text p{
+.body #aboutMe #row #text p{
   margin-top: 0px;
   font-size: calc(14px + 1vw);
   font-family: 'Open Sans', sans-serif;
 }
-.body #row #text a{
+.body #aboutMe #row #text a{
   color: rgb(75, 139, 183);
   font-weight: bold;
 }
-.body #row #text a:hover{
+.body #aboutMe #row #text a:hover{
   text-decoration: underline;
   cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+  .body #aboutMe #row #image, .body #row #text, .body #row{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .body #aboutMe #row #text{
+    height: auto;
+    width: 100%;
+    text-align: justify;
+  }
+  .body #aboutMe #row #image{
+    width: 100%;
+    max-width: 250px;
+  }
+  .body #aboutMe #row #spacer{
+    display: block;
+    height: 50px;
+  }
+  .body #aboutMe #row {
+    display: block;
+    height: auto;
+  }
 }
 
 
@@ -198,7 +239,7 @@ body {
   animation-delay: calc(var(--animation-delay) * 3);
 }
 .body #contact #subject:focus{
-  background-color:rgb(245, 255, 254);
+  color: rgb(75, 139, 183);
 }
 
 .body #contact #body{
@@ -210,8 +251,8 @@ body {
   box-sizing: border-box;
   outline: none;
   border: none;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border: 1px solid black;
+  border-radius: 10px;
   padding: 20px;
   background-color: white;
   margin-left: calc(30% - 40px);
@@ -227,5 +268,5 @@ body {
   animation-delay: calc(var(--animation-delay) * 3);
 }
 .body #contact #body:focus{
-  background-color:rgb(245, 255, 254);
+  color: rgb(75, 139, 183);
 }
