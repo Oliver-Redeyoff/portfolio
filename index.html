@@ -2,30 +2,59 @@
   <head>
     <meta charset = "utf-8" />
     <title>Oliver Redeyoff</title>
-     <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Slab:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
   </head>
 
   <body>
 
     <div class="header">
-      <div class="header-grid">
-        <div class="card profile">
-          <img src="Assets/profile.png"/>
-        </div>
-        <div class="card card-wide description" style="background-image: url('some-image-URL')">
-          <h2>Oliver Redeyoff</h2>
-          <p><a>Email </a> oliver.redeyoff@gmail.com</p>
-          <p><a>Current occupation </a> Compsci student</p>
+      <div id="me">
+        <img src="Assets/profileSmall.png"/>
+        <div id="name">
+          <h1>Oliver Redeyoff</h1>
+          <h2>Software developper</h2>
         </div>
       </div>
+      <div class="menuWrapper">
+        <div id="menu">
+          <h2 onclick="showHome()">Home</h2>
+          <h2 id="filler">/</h2>
+          <h2 onclick="showMyWork()">My Work</h2>
+          <h2 id="filler">/</h2>
+          <h2 onclick="showContact()" id="lastMenu">Contact</h2>
+        </div>
+      </div>
+    <div id="divider"></div>
     </div>
 
-    <div class="body-grid">
-      <div class="card">This is cv</div>
-      <div class="card">This is github</div>
-    </div>
+    <div class="body">
+      <h1>About me</h1>
+      <div id="row">
+        <div id="image">
+          <img src="Assets/terminal.png"/>
+        </div>
+        <div id="spacer"></div>
+        <div id="text">
+          <p>I am a Computer-Science student, currently studying at the Univeristy
+          of Bath. I am passionate about my subject and love to further my knowledge through
+          pratical projects and research.</p>
+        </div>
+      </div>
 
+      <div id="row">
+        <div id="text">
+          <p>I am currently completing the final year of my degree and am looking
+            for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
+        </div>
+        <div id="spacer"></div>
+        <div id="image">
+          <img src="Assets/resume.png"/>
+        </div>
+      </div>
+
+    </div>
 
   </body>
 

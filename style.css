@@ -1,84 +1,170 @@
+:root{
+  --animation-delay: 0.1s;
+}
+
+@keyframes fadeInUp{
+  0%{opacity: 0; padding-top: 30px;}
+  100%{opacity: 1; padding-top: 0px;}
+}
+
 body {
   padding: 0px;
   margin: 0px;
 }
 
 .header {
+  padding-top: 100px;
+  padding-bottom: 40px;
   height: auto;
   width: 100%;
-  padding: 10px 0px 10px 0px;
-  background-color: rgb(241, 241, 241)
+}
+.header #me{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+}
+.header #me img{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  transition: transform 0.3s;
+}
+.header #me img:hover{
+  transform: scale(1.1);
+}
+.header #me #name{
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: -10px;
+}
+.header #me #name h1{
+  margin: 0px;
+  font-family: 'Roboto Slab', serif;
+}
+.header #me #name h2{
+  margin: 0px;
+  font-family: 'Roboto Slab', serif;
+  color: rgb(161, 159, 159);
+  margin-left: 3px;
+  font-size: 120%;
 }
 
-.header-grid {
-  display: grid;
-  gap: 1rem;
-  margin-left: 10px;
-  margin-right: 10px;
-
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 200px;
+.menuWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header #menu{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 80%;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: var(--animation-delay);
+}
+.header #menu h2{
+  display: inline-block;
+  text-align: center;
+  width: 90px;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(75, 139, 183);
+  transition: color 0.2s;
+}
+.header #menu h2:hover{
+  cursor: pointer;
+  color: rgb(46, 86, 113);
+}
+.header #menu #lastMenu{
+  border-right: 0px solid black;
+}
+.header #menu #filler{
+  display: inline-block;
+  color: rgb(194, 194, 194);
+  width: 10vw;
+}
+.header #divider{
+  display: border;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  border-bottom: 1px solid rgb(194, 194, 194);
+  width: 70%;
 }
 
-.body-grid {
-  display: grid;
-  gap: 1rem;
-  margin-top: 20px;
 
-  border: 1px solid red;
-
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-auto-rows: 600px;
+.body{
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
-
-@media screen and (min-width: 1000px) {
-  .header-grid {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .body-grid {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.body h1{
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-size: 250%;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 2);
 }
-
-
-
-
-.card {
-  border: 1px solid black;
-  overflow: hidden;
+.body #row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-top: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 3);
 }
-@media screen and (min-width: 400px) {
-  .card-wide {
-    grid-column: span 2 / auto;
-  }
+.body #row #image{
+  display: inline-block;
+  height: 100%;
+  width: 250px;
+  transition: transform 0.3s;
 }
-
-.profile {
-  border-radius: 20px;
+.body #row #image:hover{
+  transform: scale(1.1);
 }
-.profile img {
-  width: 100%;
-  height: auto;
+.body #row #spacer{
+  height: 100%;
+  width: 10vw;
+  background-position: red;
 }
-
-.description {
-  font-family: 'Baloo Chettan 2';
-  font-weight: 400;
+.body img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
 }
-.description h2{
+.body #row #text{
+  display: inline-block;
+  height: 100%;
+  width: 400px;
+}
+.body #row #text p{
   margin-top: 0px;
-  margin-bottom: 0px;
+  font-size: calc(14px + 1vw);
+  font-family: 'Open Sans', sans-serif;
 }
-.description p{
-  margin-top: 5px;
-  margin-bottom: 5px;
+.body #row #text a{
+  color: rgb(75, 139, 183);
+  font-weight: bold;
 }
-.description a{
-  font-weight: 700;
-  margin-right: 10px;
+.body #row #text a:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
