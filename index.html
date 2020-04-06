@@ -34,8 +34,9 @@
       <h1>About me</h1>
       <div id="aboutMe">
         <div id="row">
-          <div id="image">
+          <div class="image" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
             <img src="Assets/terminal.png"/>
+            <p id="hidden1">View my work</p>
           </div>
           <div id="spacer"></div>
           <div id="text">
@@ -51,12 +52,18 @@
               for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
           </div>
           <div id="spacer"></div>
-          <div id="image">
+          <div class="image" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
             <img src="Assets/resume.png"/>
+            <p id="hidden2">View my work</p>
           </div>
         </div>
       </div>
 
+    </div>
+
+    <div id="resumeViewHidden" onclick="toggleResumeView()">
+      <img id="close" src="Assets/close.png"></img>
+      <iframe id="resume" src="Assets/resume.pdf" width="75%" height="90%">
     </div>
 
   </body>

@@ -6,8 +6,9 @@ function showHome(){
   <h1>About me</h1>
   <div id="aboutMe">
     <div id="row">
-      <div id="image">
+      <div class="image" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
         <img src="Assets/terminal.png"/>
+        <p id="hidden">View my work</p>
       </div>
       <div id="spacer"></div>
       <div id="text">
@@ -23,7 +24,7 @@ function showHome(){
           for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
       </div>
       <div id="spacer"></div>
-      <div id="image">
+      <div class="image">
         <img src="Assets/resume.png"/>
       </div>
     </div>
@@ -43,8 +44,9 @@ function showMyWork(){
   <h1>My Work</h1>
   <div id="aboutMe">
     <div id="row">
-      <div id="image">
+      <div class="image" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
         <img src="Assets/terminal.png"/>
+        <p id="hidden">View my work</p>
       </div>
       <div id="spacer"></div>
       <div id="text">
@@ -60,7 +62,7 @@ function showMyWork(){
           for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
       </div>
       <div id="spacer"></div>
-      <div id="image">
+      <div class="image">
         <img src="Assets/resume.png"/>
       </div>
     </div>
@@ -87,5 +89,28 @@ function showContact(){
   if(visibleContent != "Contact"){
     body[0].innerHTML = source
     visibleContent = "Contact"
+  }
+}
+
+function hideMyWork(){
+  document.getElementById('visible1').id = "hidden1"
+}
+function appearMyWork(){
+  document.getElementById('hidden1').id = "visible1"
+}
+
+function hideResume(){
+  document.getElementById('visible2').id = "hidden2"
+}
+function appearResume(){
+  document.getElementById('hidden2').id = "visible2"
+}
+
+function toggleResumeView(){
+  console.log("quit")
+  if(document.getElementById("resumeViewHidden")){
+    document.getElementById("resumeViewHidden").id = "resumeViewVisible"
+  } else {
+    document.getElementById("resumeViewVisible").id = "resumeViewHidden"
   }
 }

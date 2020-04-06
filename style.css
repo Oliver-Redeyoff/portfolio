@@ -11,6 +11,15 @@
   100%{opacity: 1; padding-top: 20px;}
 }
 
+@keyframes myWorkAppear{
+  0%{margin-top: -50px}
+  100%{margin-top: 10px}
+}
+@keyframes myWorkDisappear{
+  0%{margin-top: 10px}
+  100%{margin-top: -50px}
+}
+
 body {
   padding: 0px;
   margin: 0px;
@@ -57,7 +66,7 @@ body {
   margin-left: 3px;
   font-size: 120%;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 600px) {
   .header #me #name h1{
     font-size: 150%;
   }
@@ -126,7 +135,7 @@ body {
 
 .body{
   padding-top: 10px;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
 }
 
 .body h1{
@@ -153,25 +162,59 @@ body {
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 3);
 }
-.body #aboutMe #row #image{
+.body #aboutMe #row .image{
   display: inline-block;
   height: 300px;
   width: 250px;
   transition: transform 0.3s;
 }
-.body #aboutMe #row #image:hover{
+.body #aboutMe #row .image:hover{
   transform: scale(1.1);
+}
+.body #aboutMe #row .image img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.body #aboutMe #row .image p{
+  position: relative;
+  text-align: center;
+  height: 30px;
+  line-height: 28px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  z-index: -1;
+}
+.body #aboutMe #row .image #hidden1{
+  animation-name: myWorkDisappear;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  margin-top: -50px;
+}
+.body #aboutMe #row .image #visible1{
+  animation-name: myWorkAppear;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  margin-top: 10px;
+}
+.body #aboutMe #row .image #hidden2{
+  animation-name: myWorkDisappear;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  margin-top: -50px;
+}
+.body #aboutMe #row .image #visible2{
+  animation-name: myWorkAppear;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  margin-top: 10px;
 }
 .body #aboutMe #row #spacer{
   height: 100%;
   width: 10vw;
   background-position: red;
-}
-.body #aboutMe img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
 }
 .body #aboutMe #row #text{
   display: inline-block;
@@ -274,4 +317,37 @@ body {
 }
 .body #contact #body:focus{
   color: rgb(75, 139, 183);
+}
+
+#resumeViewHidden{
+  display: none;
+}
+#resumeViewVisible{
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-name: fadeInUp;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+
+}
+#close{
+  position: fixed;
+  right: calc(3%);
+  top: 20px;
+  width: 5%;
+  max-width: 60px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+#close:hover{
+  opacity: 1;
+}
+#resume{
+  position: fixed;
+  left: 12.5%;
+  top: 5%;
 }
