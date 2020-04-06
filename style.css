@@ -235,7 +235,7 @@ body {
   cursor: pointer;
 }
 @media screen and (max-width: 750px) {
-  .body #aboutMe #row #image, .body #row #text, .body #row{
+  .body #aboutMe #row .image, .body #row #text, .body #row{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -245,7 +245,7 @@ body {
     width: 100%;
     text-align: justify;
   }
-  .body #aboutMe #row #image{
+  .body #aboutMe #row .image{
     width: 100%;
     max-width: 250px;
   }
