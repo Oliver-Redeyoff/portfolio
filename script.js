@@ -8,7 +8,7 @@ function showHome(){
     <div id="row">
       <div class="image" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
         <img src="Assets/terminal.png"/>
-        <p id="hidden">View my work</p>
+        <p id="hidden1">View my work</p>
       </div>
       <div id="spacer"></div>
       <div id="text">
@@ -24,8 +24,9 @@ function showHome(){
           for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
       </div>
       <div id="spacer"></div>
-      <div class="image">
+      <div class="image" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
         <img src="Assets/resume.png"/>
+        <p id="hidden2">View my work</p>
       </div>
     </div>
   </div>
@@ -42,31 +43,6 @@ function showMyWork(){
   var body = document.getElementsByClassName("body")
   var source = `
   <h1>My Work</h1>
-  <div id="aboutMe">
-    <div id="row">
-      <div class="image" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
-        <img src="Assets/terminal.png"/>
-        <p id="hidden">View my work</p>
-      </div>
-      <div id="spacer"></div>
-      <div id="text">
-        <p>I am a Computer-Science student, currently studying at the Univeristy
-        of Bath. I am passionate about my subject and love to further my knowledge through
-        pratical projects and research.</p>
-      </div>
-    </div>
-
-    <div id="row">
-      <div id="text">
-        <p>I am currently completing the final year of my degree and am looking
-          for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
-      </div>
-      <div id="spacer"></div>
-      <div class="image">
-        <img src="Assets/resume.png"/>
-      </div>
-    </div>
-  </div>
   `
 
   if(visibleContent != "MyWork"){
