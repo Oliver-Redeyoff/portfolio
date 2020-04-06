@@ -59,7 +59,7 @@ function showContact(){
     <h1>Contact me</h1>
     <input type="text" id="subject" placeholder="Subject"><br>
     <textarea id="body" placeholder="Message"></textarea><br>
-    <div id="buttonWrapper" onclick="setTimeout(function() { sendEmail(); }, 500);"><div id="button"><img src="Assets/arrow.png"/></div><a id="buttonText">Send Email</a></div>
+    <div id="buttonWrapper" onclick="sendEmail()"><div id="button"><img src="Assets/arrow.png"/></div><a id="buttonText">Send Email</a></div>
   </div>
   `
 
