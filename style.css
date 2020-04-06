@@ -6,18 +6,9 @@
   0%{opacity: 0; padding-top: 30px;}
   100%{opacity: 1; padding-top: 0px;}
 }
-@keyframes fadeInUpMessage{
-  0%{opacity: 0; padding-top: 50px;}
-  100%{opacity: 1; padding-top: 20px;}
-}
-
-@keyframes myWorkAppear{
-  0%{margin-top: -50px}
-  100%{margin-top: 10px}
-}
-@keyframes myWorkDisappear{
-  0%{margin-top: 10px}
-  100%{margin-top: -50px}
+@keyframes fadeIn{
+  0%{opacity: 0}
+  100%{opacity: 1}
 }
 
 body {
@@ -186,29 +177,12 @@ body {
   border-radius: 5px;
   font-family: 'Open Sans', sans-serif;
   z-index: -1;
+  transition: margin-top 0.4s;
 }
-.body #aboutMe #row .image #hidden1{
-  animation-name: myWorkDisappear;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
+.body #aboutMe #row .image #hidden1, #hidden2{
   margin-top: -50px;
 }
-.body #aboutMe #row .image #visible1{
-  animation-name: myWorkAppear;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  margin-top: 10px;
-}
-.body #aboutMe #row .image #hidden2{
-  animation-name: myWorkDisappear;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  margin-top: -50px;
-}
-.body #aboutMe #row .image #visible2{
-  animation-name: myWorkAppear;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
+.body #aboutMe #row .image #visible1, #visible2{
   margin-top: 10px;
 }
 .body #aboutMe #row #spacer{
@@ -309,7 +283,7 @@ body {
   resize: none;
   transition: background-color 0.5s ease;
   background-color: white;
-  animation-name: fadeInUpMessage;
+  animation-name: fadeIn;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
@@ -317,6 +291,62 @@ body {
 }
 .body #contact #body:focus{
   color: rgb(75, 139, 183);
+}
+
+.body #contact #buttonwrapper{
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  width: 230px;
+  height: 50px;
+  background-color: rgba(75, 139, 183, 0.4);
+  border-radius: 25px;
+  text-align: center;
+  color: black;
+  margin-left: calc(30% - 40px);
+  margin-top: 50px;
+  font-size: calc(12px + 1vw);
+  resize: none;
+  transition: background-color 0.5s ease;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 2);
+}
+.body #contact #button{
+  width: 50px;
+  height: 100%;
+  border-radius: 25px;
+  background-color: rgb(35,34,46);
+  transition: width 0.5s;
+}
+.body #contact #buttonWrapper:hover #button{
+  width: 100%;
+}
+.body #contact #buttonWrapper #button img{
+  margin-top: 12.5px;
+  height: 25px;
+  width: auto;
+  font-family: 'Roboto', serif;
+  color: white;
+  margin-left: 0px;
+  transition: margin-left 0.5s;
+}
+.body #contact #buttonWrapper:hover #button img{
+  margin-left: 80%;
+}
+.body #contact #buttonWrapper #buttonText{
+  position: relative;
+  font-size: 20px;
+  top: -39px;
+  color: black;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  transition: color 0.4s;
+}
+
+.body #contact #buttonWrapper:hover #buttonText{
+  color: white;
 }
 
 #resumeViewHidden{

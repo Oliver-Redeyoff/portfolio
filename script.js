@@ -21,12 +21,12 @@ function showHome(){
     <div id="row">
       <div id="text">
         <p>I am currently completing the final year of my degree and am looking
-          for a graduate position. You can view my work <a>here</a>, and can contact me <a>here</a>. </p>
+          for a graduate position. You can view my Resume <a>here</a>, and can contact me <a>here</a>. </p>
       </div>
       <div id="spacer"></div>
       <div class="image" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
         <img src="Assets/resume.png"/>
-        <p id="hidden2">View my work</p>
+        <p id="hidden2">View my Resume</p>
       </div>
     </div>
   </div>
@@ -58,7 +58,8 @@ function showContact(){
   <div id="contact">
     <h1>Contact me</h1>
     <input type="text" id="subject" placeholder="Subject"><br>
-    <textarea id="body" placeholder="Message"></textarea>
+    <textarea id="body" placeholder="Message"></textarea><br>
+    <div id="buttonWrapper" onclick="sendEmail()"><div id="button"><img src="Assets/arrow.png"/></div><a id="buttonText">Send Email</a></div>
   </div>
   `
 
@@ -67,6 +68,7 @@ function showContact(){
     visibleContent = "Contact"
   }
 }
+
 
 function hideMyWork(){
   document.getElementById('visible1').id = "hidden1"
@@ -89,4 +91,11 @@ function toggleResumeView(){
   } else {
     document.getElementById("resumeViewVisible").id = "resumeViewHidden"
   }
+}
+
+function sendEmail(){
+  var subj = document.getElementById("subject").value
+  var body = document.getElementById("body").value.replace(/(\r\n|\n|\r)/gm,"%0D%0A")
+
+  window.open("mailto:oliver.redeyoff@gmail.com?Subject=" + subj + "&body=" + body, "Contact Me", "width=600,height=600");
 }
