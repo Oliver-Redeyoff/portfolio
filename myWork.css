@@ -68,17 +68,17 @@
   transition: height 0.3s;
 }
 #myWork #container .cardContainer:nth-child(1) #card .imgContainer{
-  background: url("Assets/projects/htp.png");
+  background: url("Assets/Projects/htp.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 #myWork #container .cardContainer:nth-child(2) #card .imgContainer{
-  background: url("Assets/projects/Waste2O.png");
+  background: url("Assets/Projects/Waste2O.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 #myWork #container .cardContainer:nth-child(3) #card .imgContainer{
-  background: url("Assets/projects/Cricket.jpg");
+  background: url("Assets/Projects/Cricket.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
