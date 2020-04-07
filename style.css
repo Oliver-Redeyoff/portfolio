@@ -226,11 +226,14 @@ body {
   }
   .body #aboutMe #row #spacer{
     display: block;
-    height: 50px;
+    height: 80px;
   }
   .body #aboutMe #row {
     display: block;
     height: auto;
+  }
+  .body #aboutMe #row .image #hidden1, #hidden2{
+    margin-top: 10px;
   }
 }
 

@@ -43,6 +43,38 @@ function showMyWork(){
   var body = document.getElementsByClassName("body")
   var source = `
   <h1>My Work</h1>
+  <div id="myWork">
+    <div id="container">
+
+      <div class="cardContainer">
+        <div id="card">
+          <div class="imgContainer"></div>
+          <h2>HackThePlug</h2>
+          <p>This is a hackathon that I help organise, we are planning on
+          holding it again next year in March.</p>
+        </div>
+      </div>
+
+      <div class="cardContainer">
+        <div id="card">
+          <div class="imgContainer"></div>
+          <h2>Waste20</h2>
+          <p>A website I made which allows users to find alternative zero-waste
+          products.</p>
+        </div>
+      </div>
+
+      <div class="cardContainer">
+        <div id="card">
+          <div class="imgContainer"></div>
+          <h2>Gloscricket app</h2>
+          <p>I designed an app for the Glocestershire Cricket club, allowing
+            to see current news and some AR features.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
   `
 
   if(visibleContent != "MyWork"){
