@@ -5,13 +5,14 @@
     <title>Oliver Redeyoff</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Slab:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="myWork.css" />
     <script src="script.js"></script>
   </head>
 
   <body>
     <div class="header">
       <div id="me">
-        <img src="Assets/profile3.png"/>
+        <img src="Assets/profile2.png"/>
         <div id="name">
           <h1>Oliver Redeyoff</h1>
           <h2>Software developer</h2>
@@ -31,31 +32,36 @@
 
 
     <div class="body">
-      <h1>About me</h1>
-      <div id="aboutMe">
-        <div id="row">
-          <div class="image" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
-            <img src="Assets/terminal.png"/>
-            <p id="hidden1">View my work</p>
-          </div>
-          <div id="spacer"></div>
-          <div id="text">
-            <p>I am a Computer-Science student, currently studying at the Univeristy
-            of Bath. I am passionate about my subject and love to further my knowledge through
-            pratical projects and research.</p>
-          </div>
-        </div>
+      <h1>My Work</h1>
+      <div id="myWork">
+        <div id="container">
 
-        <div id="row">
-          <div id="text">
-            <p>I am currently completing the final year of my degree and am looking
-              for a graduate position. You can view my Resume <a>here</a>, and can contact me <a>here</a>. </p>
+          <div class="cardContainer">
+            <div id="card">
+              <div class="imgContainer"></div>
+              <h2>HackThePlug</h2>
+              <p>This is a hackathon that I help organise, we are planning on
+              holding it again next year in March.</p>
+            </div>
           </div>
-          <div id="spacer"></div>
-          <div class="image" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
-            <img src="Assets/resume.png"/>
-            <p id="hidden2">View my Resume</p>
+
+          <div class="cardContainer">
+            <div id="card">
+              <div class="imgContainer"></div>
+              <h2>Waste20</h2>
+              <p>A website I made which allows users to find alternative zero-waste
+              products.</p>
+            </div>
           </div>
+
+          <div class="cardContainer">
+            <div id="card">
+              <div class="imgContainer"></div>
+              <h2>Test card</h2>
+              <p>This is a test card I made for the test carding of testing</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-  padding-top: 100px;
+  padding-top: 60px;
   padding-bottom: 20px;
   height: auto;
   width: 100%;
@@ -178,6 +178,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   z-index: -1;
   transition: margin-top 0.4s;
+  cursor: pointer;
 }
 .body #aboutMe #row .image #hidden1, #hidden2{
   margin-top: -50px;
@@ -197,7 +198,7 @@ body {
 }
 .body #aboutMe #row #text p{
   margin-top: 0px;
-  font-size: calc(14px + 1vw);
+  font-size: calc(14px + 0.8vw);
   font-family: 'Open Sans', sans-serif;
 }
 .body #aboutMe #row #text a{

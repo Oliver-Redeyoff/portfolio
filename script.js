@@ -21,7 +21,7 @@ function showHome(){
     <div id="row">
       <div id="text">
         <p>I am currently completing the final year of my degree and am looking
-          for a graduate position. You can view my Resume <a>here</a>, and can contact me <a>here</a>. </p>
+          for a graduate position. You can view my Resume <a onclick="toggleResumeView()">here</a>, and can contact me <a onclick="showContact()">here</a>. </p>
       </div>
       <div id="spacer"></div>
       <div class="image" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
@@ -55,8 +55,8 @@ function showMyWork(){
 function showContact(){
   var body = document.getElementsByClassName("body")
   var source = `
+  <h1>Contact me</h1>
   <div id="contact">
-    <h1>Contact me</h1>
     <input type="text" id="subject" placeholder="Subject"><br>
     <textarea id="body" placeholder="Message"></textarea><br>
     <div id="buttonWrapper" onclick="sendEmail()"><div id="button"><img src="Assets/arrow.png"/></div><a id="buttonText">Send Email</a></div>

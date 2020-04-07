@@ -1,0 +1,107 @@
+:root{
+  --cardHeight: 300px;
+}
+
+#myWork #container{
+  padding-top: 50px;
+  margin-left: calc(25px + 15%);
+  margin-right: calc(25px + 15%);
+}
+
+#myWork #container .cardContainer{
+  float: left;
+  width: calc(50% - 2px);
+  height: var(--cardHeight);
+  margin: 0px;
+  margin-bottom: 50px;
+}
+#myWork #container .cardContainer #card{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 500px;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+
+#myWork #container .cardContainer #card:hover .imgContainer {
+  height: calc(var(--cardHeight) * 0.4);
+  width: 100%;
+  overflow: hidden;
+}
+#myWork #container .cardContainer #card .imgContainer {
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.3s;
+}
+#myWork #container .cardContainer:nth-child(1) #card .imgContainer{
+  background: url("Assets/projects/htp.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#myWork #container .cardContainer:nth-child(2) #card .imgContainer{
+  background: url("Assets/projects/Waste2O.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#myWork #container .cardContainer:nth-child(3) #card .imgContainer{
+  background: url("Assets/projects/htp.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#myWork #container .cardContainer #card h2{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: black;
+  border-radius: 10px;
+  transition: margin 0.3s;
+}
+#myWork #container .cardContainer #card:hover h2{
+  margin-top: 20px;
+}
+
+#myWork #container .cardContainer #card p{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 900px){
+  #myWork #container{
+    padding-top: 50px;
+    margin-left: calc(25px + 5%);
+    margin-right: calc(25px + 5%);
+  }
+  #myWork #container .cardContainer{
+    width: 100%;
+    height: var(--cardHeight);
+    margin: 0px;
+    margin-bottom: 50px;
+  }
+
+  #myWork #container .cardContainer #card h2{
+    margin-top: 20px;
+  }
+  #myWork #container .cardContainer #card:hover .imgContainer {
+  }
+  #myWork #container .cardContainer #card .imgContainer {
+    height: calc(var(--cardHeight) * 0.4);
+    width: 100%;
+    overflow: hidden;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.3s;
+  }
+}
