@@ -130,6 +130,7 @@ body {
 }
 
 .body h1{
+  margin-bottom: 80px;
   font-family: 'Roboto Slab', serif;
   text-align: center;
   font-size: 250%;
@@ -139,7 +140,9 @@ body {
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 2);
 }
-.body #aboutMe #row{
+
+/* This is old */
+/* .body #aboutMe #row{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,6 +209,90 @@ body {
   font-weight: bold;
 }
 .body #aboutMe #row #text a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+  .body #aboutMe #row .image, .body #row #text, .body #row{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .body #aboutMe #row #text{
+    height: auto;
+    width: 100%;
+    text-align: justify;
+  }
+  .body #aboutMe #row .image{
+    width: 100%;
+    max-width: 250px;
+  }
+  .body #aboutMe #row #spacer{
+    display: block;
+    height: 80px;
+  }
+  .body #aboutMe #row {
+    display: block;
+    height: auto;
+  }
+  .body #aboutMe #row .image #hidden1, #hidden2{
+    margin-top: 10px;
+  }
+} */
+
+/* This is new */
+.body #aboutMe .customButton{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 30px;
+  margin-left: 25%;
+  margin-bottom: 100px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.body #aboutMe .customButton:hover{
+  
+}
+.body #aboutMe .customButton img{
+  margin-left: 10px;
+  display: inline-block;
+  height: 100%;
+  transition: filter 0.3s;
+}
+.body #aboutMe .customButton:hover img{
+
+}
+.body #aboutMe .customButton p{
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  top: -5px;
+  text-align: center;
+  height: 30px;
+  margin: 0px;
+  margin-left: 10px;
+  line-height: 28px;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  transition: margin-top 0.4s;
+  cursor: pointer;
+}
+.body #aboutMe #text{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.body #aboutMe #text p{
+  margin-top: 0px;
+  font-size: calc(14px + 0.8vw);
+  font-family: 'Open Sans', sans-serif;
+}
+.body #aboutMe #text a{
+  color: rgb(75, 139, 183);
+  font-weight: bold;
+}
+.body #aboutMe #text a:hover{
   text-decoration: underline;
   cursor: pointer;
 }
