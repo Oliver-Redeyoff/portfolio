@@ -251,6 +251,10 @@ body {
   margin-bottom: 100px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
 }
 .body #aboutMe .customButton:hover{
 
@@ -282,6 +286,10 @@ body {
 .body #aboutMe #text{
   margin-left: 25%;
   margin-right: 25%;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
 }
 .body #aboutMe #text p{
   margin-top: 0px;
