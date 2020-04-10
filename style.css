@@ -253,16 +253,16 @@ body {
   cursor: pointer;
 }
 .body #aboutMe .customButton:hover{
-  
+
 }
 .body #aboutMe .customButton img{
   margin-left: 10px;
   display: inline-block;
   height: 100%;
-  transition: filter 0.3s;
+  transition: transform 0.5s;
 }
 .body #aboutMe .customButton:hover img{
-
+  transform: rotate(360deg);
 }
 .body #aboutMe .customButton p{
   display: inline-block;
