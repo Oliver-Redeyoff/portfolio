@@ -9,7 +9,7 @@
 }
 
 #myWork #container{
-  padding-top: 50px;
+  padding-top: 30px;
   margin-left: calc(25px + 15%);
   margin-right: calc(25px + 15%);
 }
@@ -108,7 +108,7 @@
 
 @media screen and (max-width: 900px){
   #myWork #container{
-    padding-top: 50px;
+    padding-top: 0px;
     margin-left: calc(25px + 5%);
     margin-right: calc(25px + 5%);
   }

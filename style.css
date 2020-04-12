@@ -255,6 +255,7 @@ body {
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 3);
 }
 .body #aboutMe .customButton:hover{
 
@@ -290,6 +291,7 @@ body {
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 3);
 }
 .body #aboutMe #text p{
   margin-top: 0px;
@@ -305,30 +307,18 @@ body {
   cursor: pointer;
 }
 @media screen and (max-width: 750px) {
-  .body #aboutMe #row .image, .body #row #text, .body #row{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  .body h1{
+    margin-bottom: 50px;
   }
-  .body #aboutMe #row #text{
+  .body #aboutMe .customButton{
+    margin-left: 18%;
+  }
+  .body #aboutMe #text{
+    margin-left: 18%;
+    margin-right: 18%;
     height: auto;
-    width: 100%;
+    font-size: 20px;
     text-align: justify;
-  }
-  .body #aboutMe #row .image{
-    width: 100%;
-    max-width: 250px;
-  }
-  .body #aboutMe #row #spacer{
-    display: block;
-    height: 80px;
-  }
-  .body #aboutMe #row {
-    display: block;
-    height: auto;
-  }
-  .body #aboutMe #row .image #hidden1, #hidden2{
-    margin-top: 10px;
   }
 }
 
