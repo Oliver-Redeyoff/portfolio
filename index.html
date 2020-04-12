@@ -36,28 +36,62 @@
 
 
     <div class="body">
-      <h1>About me</h1>
-      <div id="aboutMe">
+      <h1>My Work</h1>
+      <div id="myWork">
+        <div id="container">
 
-        <div id="text">
-          <p>I am a Computer-Science student, currently studying at the University
-          of Bath. I am passionate about my subject and love to further my knowledge through
-          pratical projects and research.</p>
-        </div>
-        <div class="customButton" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
-          <img src="Assets/fileIcon.png"/>
-          <p>View my work</p>
-        </div>
+          <div class="cardContainer" onclick="toggleProject(0)">
+            <div id="card">
+              <div class="projDescription">
+                <p onclick="window.open('https://www.oliverredeyoff.com/')">Link to website</p>
+                <p onclick="window.open('https://github.com/Oliver-Redeyoff/personal')">Link to github</p>
+              </div>
+              <div class="imgContainer"></div>
+              <h2>This website</h2>
+              <p>I made this personal website to display my resume and showcase
+                some projects I have made</p>
+            </div>
+          </div>
 
-        <div id="text">
-          <p>I am currently completing the final year of my degree and am looking
-            for a graduate position. You can view my Resume <a onclick="toggleResumeView()">here</a>, and can contact me <a onclick="showContact()">here</a>. </p>
-        </div>
-        <div class="customButton" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
-          <img src="Assets/personIcon.png"/>
-          <p>View my Resume</p>
-        </div>
+          <div class="cardContainer" onclick="toggleProject(1)">
+            <div id="card">
+              <div class="projDescription">
+                <p onclick="window.open('https://www.hacktheplug.tech/')">Link to website</p>
+                <p onclick="window.open('https://github.com/willcruse/hack-the-plug')">Link to github</p>
+              </div>
+              <div class="imgContainer"></div>
+              <h2>HackThePlug</h2>
+              <p>This is a hackathon that I help organise, we are planning on
+              holding it again next year in March.</p>
+            </div>
+          </div>
 
+          <div class="cardContainer" onclick="toggleProject(2)">
+            <div id="card">
+              <div class="projDescription">
+                <p onclick="window.open('https://oliver-redeyoff.github.io/Waste2O/')">Link to website</p>
+                <p onclick="window.open('https://github.com/Oliver-Redeyoff/Waste2O')">Link to github</p>
+              </div>
+              <div class="imgContainer"></div>
+              <h2>Waste20</h2>
+              <p>A website I made which allows users to find alternative zero-waste
+              products.</p>
+            </div>
+          </div>
+
+          <div class="cardContainer" onclick="toggleProject(3)">
+            <div id="card">
+              <div class="projDescription">
+                <p>Link to github</p>
+              </div>
+              <div class="imgContainer"></div>
+              <h2>Gloscricket app</h2>
+              <p>I designed an app for the Glocestershire Cricket club, allowing
+                to see current news and some AR features.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 

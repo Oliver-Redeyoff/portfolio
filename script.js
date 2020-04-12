@@ -121,6 +121,17 @@ function toggleResumeView(){
   }
 }
 
+function toggleProject(num){
+  console.log("hello")
+  var cards = document.getElementsByClassName("projDescription")
+  console.log(cards)
+  if(cards[num].style.marginTop != "0px"){
+    cards[num].style.marginTop = "0px"
+  } else {
+    cards[num].style.marginTop = "-350px"
+  }
+}
+
 function sendEmail(){
   var subj = document.getElementById("subject").value
   var body = document.getElementById("body").value.replace(/(\r\n|\n|\r)/gm,"%0D%0A")

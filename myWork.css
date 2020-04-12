@@ -56,6 +56,33 @@
   box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
 }
 
+#myWork #container .cardContainer #card .projDescription{
+  position: relative;
+  padding-top: 50px;
+  height: var(--cardHeight);
+  margin-top: calc(-1 * var(--cardHeight) - 50px);
+  transition: margin 0.4s;
+}
+#myWork #container .cardContainer #card .projDescription p{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+#myWork #container .cardContainer #card .projDescription p:hover{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: rgba(168, 71, 71, 0.8);
+  color: white;
+}
 #myWork #container .cardContainer #card:hover .imgContainer {
   height: calc(var(--cardHeight) * 0.4);
   width: 100%;
@@ -68,16 +95,21 @@
   transition: height 0.3s;
 }
 #myWork #container .cardContainer:nth-child(1) #card .imgContainer{
-  background: url("Assets/Projects/htp.png");
+  background: url("Assets/profile4.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 #myWork #container .cardContainer:nth-child(2) #card .imgContainer{
-  background: url("Assets/Projects/Waste2O.png");
+  background: url("Assets/Projects/htp.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 #myWork #container .cardContainer:nth-child(3) #card .imgContainer{
+  background: url("Assets/Projects/Waste2O.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#myWork #container .cardContainer:nth-child(4) #card .imgContainer{
   background: url("Assets/Projects/Cricket.jpg");
   background-repeat: no-repeat;
   background-size: cover;
