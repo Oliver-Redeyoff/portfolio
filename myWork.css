@@ -95,7 +95,7 @@
   transition: height 0.3s;
 }
 #myWork #container .cardContainer:nth-child(1) #card .imgContainer{
-  background: url("Assets/profile4.png");
+  background: url("Assets/Projects/this-min.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -151,6 +151,9 @@
     margin-bottom: 50px;
   }
 
+  #myWork #container .cardContainer #card{
+    height: 105%;
+  }
   #myWork #container .cardContainer #card h2{
     margin-top: 20px;
   }
