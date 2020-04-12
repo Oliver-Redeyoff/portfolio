@@ -42,8 +42,25 @@ function showMyWork(){
   <div id="myWork">
     <div id="container">
 
-      <div class="cardContainer">
+      <div class="cardContainer" onclick="toggleProject(0)">
         <div id="card">
+          <div class="projDescription">
+            <p onclick="window.open('https://www.oliverredeyoff.com/')">Link to website</p>
+            <p onclick="window.open('https://github.com/Oliver-Redeyoff/personal')">Link to github</p>
+          </div>
+          <div class="imgContainer"></div>
+          <h2>This website</h2>
+          <p>I made this personal website to display my resume and showcase
+            some projects I have made</p>
+        </div>
+      </div>
+
+      <div class="cardContainer" onclick="toggleProject(1)">
+        <div id="card">
+          <div class="projDescription">
+            <p onclick="window.open('https://www.hacktheplug.tech/')">Link to website</p>
+            <p onclick="window.open('https://github.com/willcruse/hack-the-plug')">Link to github</p>
+          </div>
           <div class="imgContainer"></div>
           <h2>HackThePlug</h2>
           <p>This is a hackathon that I help organise, we are planning on
@@ -51,8 +68,12 @@ function showMyWork(){
         </div>
       </div>
 
-      <div class="cardContainer">
+      <div class="cardContainer" onclick="toggleProject(2)">
         <div id="card">
+          <div class="projDescription">
+            <p onclick="window.open('https://oliver-redeyoff.github.io/Waste2O/')">Link to website</p>
+            <p onclick="window.open('https://github.com/Oliver-Redeyoff/Waste2O')">Link to github</p>
+          </div>
           <div class="imgContainer"></div>
           <h2>Waste20</h2>
           <p>A website I made which allows users to find alternative zero-waste
@@ -60,8 +81,11 @@ function showMyWork(){
         </div>
       </div>
 
-      <div class="cardContainer">
+      <div class="cardContainer" onclick="toggleProject(3)">
         <div id="card">
+          <div class="projDescription">
+            <p>Link to github</p>
+          </div>
           <div class="imgContainer"></div>
           <h2>Gloscricket app</h2>
           <p>I designed an app for the Glocestershire Cricket club, allowing
