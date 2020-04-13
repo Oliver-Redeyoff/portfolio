@@ -93,6 +93,10 @@ function showMyWork(){
         </div>
       </div>
 
+      <div id="github" onclick="window.open('https://github.com/Oliver-Redeyoff')">
+        <img src="Assets/github-logo.png"/>
+        <p>Link to my github</p>
+      </div>
     </div>
   </div>
   `

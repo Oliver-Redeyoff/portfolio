@@ -7,6 +7,10 @@
   0%{opacity: 0; padding-top: 30px;}
   100%{opacity: 1; padding-top: 0px;}
 }
+@keyframes fadeIn {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
 
 #myWork #container{
   padding-top: 30px;
@@ -41,6 +45,13 @@
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 3);
+}
+#myWork #container .cardContainer:nth-child(4){
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 4);
 }
 
 #myWork #container .cardContainer #card{
@@ -143,6 +154,44 @@
   margin: 0px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+#myWork #github{
+  display: inline-block;
+  width: 314px;
+  height: auto;
+  margin-top: 30px;
+  margin-left: calc(50% - 177px);
+  border-radius: 10px;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: filter 0.3s;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 5);
+}
+#myWork #github:hover{
+  filter: invert(100%);
+  cursor: pointer;
+}
+#myWork #github img{
+  display: inline-block;
+  vertical-align: middle;
+  align: center;
+  height: 50px;
+  margin-right: 10px;
+}
+#myWork #github p{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px;
+  font-size: 30px;
+  font-family: 'Roboto Slab', serif;
 }
 
 @media screen and (max-width: 900px){
