@@ -83,6 +83,13 @@
   background-color: rgba(168, 71, 71, 0.8);
   color: white;
 }
+#myWork #container .cardContainer #card .projDescription img{
+  position: relative;
+  margin-right: 10px;
+  top: 4px;
+  height: 20px;
+}
+
 #myWork #container .cardContainer #card:hover .imgContainer {
   height: calc(var(--cardHeight) * 0.4);
   width: 100%;
