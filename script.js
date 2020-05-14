@@ -93,6 +93,18 @@ function showMyWork(){
         </div>
       </div>
 
+      <div class="cardContainer" onclick="toggleProject(4)">
+        <div id="card">
+          <div class="projDescription">
+            <p onclick="window.open('https://oliver-redeyoff.github.io/studyTheSource/')"><img src="Assets/webIcon.png"/> Link to website</p>
+            <p onclick="window.open('https://github.com/Oliver-Redeyoff/studyTheSource')"><img src="Assets/github-logo.png"/> Link to github</p>
+          </div>
+          <div class="imgContainer"></div>
+          <h2>Study The Source</h2>
+          <p>A website created to compare news articles on the same story from different sources.</p>
+        </div>
+      </div>
+
       <div id="github" onclick="window.open('https://github.com/Oliver-Redeyoff')">
         <img src="Assets/github-logo.png"/>
         <p>Link to my github</p>
@@ -125,20 +137,6 @@ function showContact(){
   }
 }
 
-
-function hideMyWork(){
-  document.getElementById('visible1').id = "hidden1"
-}
-function appearMyWork(){
-  document.getElementById('hidden1').id = "visible1"
-}
-
-function hideResume(){
-  document.getElementById('visible2').id = "hidden2"
-}
-function appearResume(){
-  document.getElementById('hidden2').id = "visible2"
-}
 
 function toggleResumeView(){
   console.log("quit")

@@ -1,6 +1,6 @@
 :root{
   --cardHeight: 300px;
-  --animation-delay: 0.2s;
+  --animation-delay: 0.1s;
 }
 
 @keyframes fadeInUp{
@@ -14,8 +14,8 @@
 
 #myWork #container{
   padding-top: 30px;
-  margin-left: calc(25px + 15%);
-  margin-right: calc(25px + 15%);
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #myWork #container .cardContainer{
@@ -53,11 +53,19 @@
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 4);
 }
+#myWork #container .cardContainer:nth-child(5){
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: calc(var(--animation-delay) * 5);
+}
 
 #myWork #container .cardContainer #card{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
   width: 80%;
   max-width: 500px;
   height: 100%;
@@ -129,6 +137,11 @@
 }
 #myWork #container .cardContainer:nth-child(4) #card .imgContainer{
   background: url("Assets/Projects/Cricket.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#myWork #container .cardContainer:nth-child(5) #card .imgContainer{
+  background: url("Assets/Projects/compareTheNews.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
