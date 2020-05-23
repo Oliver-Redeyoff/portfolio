@@ -1,5 +1,7 @@
 :root{
   --animation-delay: 0.1s;
+  --header-height: 120px;
+  --header-animation-time: 0.3s;
 }
 
 @keyframes fadeInUp{
@@ -17,97 +19,128 @@ body {
 }
 
 .header {
-  /* border: 1px solid green; */
-  background-color: rgb(250, 250, 250);
-  padding-top: 20px;
-  padding-bottom: 15px;
-  height: auto;
+  position: fixed;
+  /* background-color: rgba(252, 242, 237, 0.9); */
+  background-color: rgb(252, 252, 252);
+  /* padding-top: 20px; */
+  /* padding-bottom: 15px; */
+  height: var(--header-height);
   width: 100%;
+  box-shadow: 0px 5px 5px rgba(60, 30, 30, 0.1);
+  transition: height var(--header-animation-time);
 }
-.header #me{
+.header #me {
   /* border: 1px solid black; */
   display: inline-block;
-  height: 100px;
+  margin-top: calc(var(--header-height) * 0.2);
+  height: calc(var(--header-height) * 0.6);
+  margin-bottom: calc(var(--header-height) * 0.2);
   margin-left: 40px;
-  margin-right: 20px;
-  animation-name: fadeInUp;
+  margin-right: calc(var(--header-height) * 0.4);
+  transition: height var(--header-animation-time), margin var(--header-animation-time);
+  animation-name: fadeIn;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
 }
-.header #me img{
+.header #me img {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: auto;
+  height: calc(var(--header-height) * 0.6);
   border-radius: 5px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, height var(--header-animation-time);
 }
-.header #me img:hover{
+.header #me img:hover {
   transform: scale(1.1);
 }
-.header #me #name{
+.header #me #name {
   display: inline-block;
+  vertical-align: top;
+  /* border: 1px solid blue; */
   margin-left: 20px;
-  margin-top: -90px;
 }
-.header #me #name h1{
+.header #me #name h1 {
   margin: 0px;
+  font-size: calc(var(--header-height) / 4);
   font-family: 'Roboto Slab', serif;
+  transition: font-size var(--header-animation-time);
 }
-.header #me #name h2{
+.header #me #name h2 {
   margin: 0px;
   font-family: 'Roboto Slab', serif;
   color: rgb(161, 159, 159);
   margin-left: 3px;
-  font-size: 120%;
-}
-@media screen and (max-width: 600px) {
-  .header #me #name h1{
-    font-size: 150%;
-  }
-  .header #me #name h2{
-    font-size: 100%;
-  }
-  .header #me img{
-    width: 75px;
-    height: 75px;
-  }
+  font-size: calc(var(--header-height) / 5.5);
+  transition: font-size var(--header-animation-time);
 }
 
 
-.header #menu{
+.header #menu {
   /* border: 1px solid orange; */
   display: inline-block;
   vertical-align: top;
-  line-height: 100px;
-  height: 100px;
+  line-height: calc(var(--header-height) * 1);
+  height: var(--header-height);
   font-size: 80%;
-  animation-name: fadeInUp;
+  animation-name: fadeIn;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
   animation-delay: var(--animation-delay);
+  transition: height var(--header-animation-time), line-height var(--header-animation-time);
 }
-.header #menu h2{
+.header #menu h2 {
   padding: 0px;
   margin: 0px;
   /* border: 1px solid red; */
   display: inline-block;
   text-align: center;
   width: 150px;
+  font-size: 24px;
   font-family: 'Roboto', sans-serif;
   color: rgb(75, 139, 183);
-  transition: color 0.2s;
+  background-color: rgba(255, 245, 238, 0);
+  text-shadow: 0px 0px rgb(59, 106, 138);
+  transition: color 0.2s, background-color 0.4s, transform 0.3s, text-shadow 0.3s;
 }
-.header #menu h2:hover{
+.header #menu h2:hover {
   cursor: pointer;
-  color: rgb(46, 86, 113);
+  /* color: rgb(46, 86, 113); */  
+  transform: translateY(-6px);
+  /* text-shadow: -1px 1px rgb(40, 74, 97); */
+}
+
+.header #menuMin {
+  display: none;
+  float: right;
+  margin-top: calc(var(--header-height) * 0.3);
+  margin-right: 20px;
+  height: calc(var(--header-height) * 0.4);
+  transition: height var(--header-animation-time), margin var(--header-animation-time), transform 0.3s;
+}
+.header #menuMin:hover {
+  transform: translateX(-5px);
+}
+
+@media screen and (max-width: 1050px) {
+  .header #menu {
+    display: none;
+  }
+  .header #menuMin {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --header-height: 90px;
+  }
 }
 
 
 .body{
-  padding-top: 10px;
-  padding-bottom: 150px;
+  padding-top: 150px;
+  padding-bottom: 100px;
 }
 
 .body h1{

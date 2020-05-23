@@ -20,11 +20,29 @@
 
       gtag('config', 'UA-163498846-1');
     </script>
+    <script>
+      // resize header when scrolling
+      let root = document.documentElement;
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        console.log("scrolling")
+        if (window.innerWidth>600) {
+          if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            root.style.setProperty("--header-height", "90px")
+          } else {
+            root.style.setProperty("--header-height", "120px")
+          }
+        }
+      }
+    </script>
 
   </head>
 
+
+
   <body>
-    <div class="header">
+    <div class="header" id="dynHeader">
 
       <div id="me">
         <img src="Assets/profile4-min.png" alt="Oliver Redeyoff"/>
@@ -37,9 +55,10 @@
       <div id="menu">
         <h2 onclick="showHome()">Home</h2>
         <h2 onclick="showMyWork()">Resume</h2>
-        <h2 onclick="showMyWork()">My Works</h2>
+        <h2 onclick="showMyWork()">Work</h2>
         <h2 onclick="showContact()" id="lastMenu">Contact</h2>
       </div>
+      <img id="menuMin" src="Assets/3-lines.png"></img>
 
     </div>
 
@@ -54,18 +73,16 @@
           of Bath. I am passionate about my subject and love to further my knowledge through
           pratical projects and research.</p>
         </div>
-        <div class="customButton" onclick="showMyWork()">
+        <div class="customButton" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
           <img src="Assets/fileIcon.png"/>
           <p>View my work</p>
         </div>
 
         <div id="text">
           <p>I am currently completing the final year of my degree and am looking
-            for a graduate position. You can view my Resume
-            <a onclick="toggleResumeView()">here</a>,
-            and can contact me <a onclick="showContact()">here</a>. </p>
+            for a graduate position. You can view my Resume <a onclick="toggleResumeView()">here</a>, and can contact me <a onclick="showContact()">here</a>. </p>
         </div>
-        <div class="customButton" onclick="toggleResumeView()">
+        <div class="customButton" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
           <img src="Assets/personIcon.png"/>
           <p>View my Resume</p>
         </div>

@@ -226,8 +226,6 @@
   #myWork #container .cardContainer #card h2{
     margin-top: 20px;
   }
-  #myWork #container .cardContainer #card:hover .imgContainer {
-  }
   #myWork #container .cardContainer #card .imgContainer {
     height: calc(var(--cardHeight) * 0.45);
     width: 100%;
