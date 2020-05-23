@@ -28,31 +28,61 @@ body {
   width: 100%;
   box-shadow: 0px 5px 5px rgba(60, 30, 30, 0.1);
   transition: height var(--header-animation-time);
+  z-index: 8;
 }
+
+.header #socialContainer {
+  position: fixed;
+  height: calc(var(--header-height) * 0.6);
+  width: calc(250 * var(--header-height)/120 );
+  left: calc(-250 * var(--header-height)/120 + 30px);
+  background-color: rgb(252, 252, 252);
+  /* border: 1px solid red; */
+  z-index: 9;
+  transition: transform 0.5s;
+}
+.header #socialContainer h2 {
+  margin: 0px;
+  margin-bottom: calc(10 * var(--header-height) / 120);
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: calc(var(--header-height) / 6);
+}
+.header #socialContainer h2 img {
+  position: relative;
+  top: 2px;
+  width: calc(20 * var(--header-height) / 120);
+  height: auto;
+  margin-right: calc(5 * var(--header-height) / 120);
+}
+
 .header #me {
   /* border: 1px solid black; */
   display: inline-block;
   margin-top: calc(var(--header-height) * 0.2);
   height: calc(var(--header-height) * 0.6);
   margin-bottom: calc(var(--header-height) * 0.2);
-  margin-left: 40px;
+  margin-left: 30px;
   margin-right: calc(var(--header-height) * 0.4);
   transition: height var(--header-animation-time), margin var(--header-animation-time);
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
+  cursor: pointer;
 }
-.header #me img {
+.header #me #profilePic {
   display: inline-block;
   width: auto;
   height: calc(var(--header-height) * 0.6);
   border-radius: 5px;
-  transition: transform 0.3s, height var(--header-animation-time);
+  z-index: 10;
+  transition: transform 0.5s, height var(--header-animation-time), border-radius 0.3s;
 }
-.header #me img:hover {
-  transform: scale(1.1);
+.header #me:hover #profilePic {
+  border-radius: 10px;
 }
+
 .header #me #name {
   display: inline-block;
   vertical-align: top;
@@ -114,7 +144,7 @@ body {
   display: none;
   float: right;
   margin-top: calc(var(--header-height) * 0.3);
-  margin-right: 20px;
+  margin-right: 30px;
   height: calc(var(--header-height) * 0.4);
   transition: height var(--header-animation-time), margin var(--header-animation-time), transform 0.3s;
 }
@@ -133,36 +163,44 @@ body {
 
 @media screen and (max-width: 600px) {
   :root {
-    --header-height: 90px;
+    --header-height: 80px;
   }
 }
 
 
-.body{
-  padding-top: 150px;
+.body {
+  padding-top: 160px;
   padding-bottom: 100px;
+  z-index: 6;
+}
+@media screen and (max-width: 600px){
+  .body {
+    padding-top: 100px;
+  }
 }
 
-.body h1{
-  margin-bottom: 80px;
+
+.body h1 {
   font-family: 'Roboto Slab', serif;
-  text-align: center;
+  margin-left: 20%;
+  margin-bottom: 60px;
   font-size: 250%;
+  font-size: calc(24px + 0.8vw);
   animation-name: fadeInUp;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
-  animation-delay: calc(var(--animation-delay) * 2);
+  animation-delay: calc(var(--animation-delay)*2);
 }
 
-.body #aboutMe .customButton{
+.body #aboutMe .customButton {
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
   width: 200px;
   height: 30px;
   margin-left: 20%;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
   animation-name: fadeIn;
@@ -170,9 +208,6 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 3);
-}
-.body #aboutMe .customButton:hover{
-
 }
 .body #aboutMe .customButton img{
   margin-left: 10px;
@@ -302,7 +337,8 @@ body {
   width: 230px;
   height: 50px;
   background-color: rgba(75, 139, 183, 0.4);
-  border-radius: 25px;
+  border-radius: 10px;
+  overflow: hidden;
   text-align: center;
   color: black;
   margin-left: calc(30% - 40px);
@@ -315,11 +351,12 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: backwards;
   animation-delay: calc(var(--animation-delay) * 2);
+  cursor: pointer;
 }
 .body #contact #button{
   width: 50px;
   height: 100%;
-  border-radius: 25px;
+  border-radius: 10px;
   background-color: rgb(35,34,46);
   transition: width 0.5s;
 }

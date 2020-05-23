@@ -44,8 +44,12 @@
   <body>
     <div class="header" id="dynHeader">
 
-      <div id="me">
-        <img src="Assets/profile4-min.png" alt="Oliver Redeyoff"/>
+      <div id="me" onclick="toggleSocial()">
+        <div id="socialContainer">
+          <h2><img src="Assets/github-logo.png"/><a href="https://www.linkedin.com/in/oliver-redeyoff/">Oliver-Redeyoff</a></h2>
+          <h2><img src="Assets/linkedin.png"/><a href="https://github.com/Oliver-Redeyoff">oliver-redeyoff</a></h2>
+        </div>
+        <img src="Assets/profile4-min.png" id="profilePic" alt="Oliver Redeyoff"/>
         <div id="name">
           <h1>Oliver Redeyoff</h1>
           <h2>Software developer</h2>
@@ -73,7 +77,7 @@
           of Bath. I am passionate about my subject and love to further my knowledge through
           pratical projects and research.</p>
         </div>
-        <div class="customButton" onclick="showMyWork()" onmouseover="appearMyWork()" onmouseleave="hideMyWork()">
+        <div class="customButton" onclick="showMyWork()">
           <img src="Assets/fileIcon.png"/>
           <p>View my work</p>
         </div>
@@ -82,7 +86,7 @@
           <p>I am currently completing the final year of my degree and am looking
             for a graduate position. You can view my Resume <a onclick="toggleResumeView()">here</a>, and can contact me <a onclick="showContact()">here</a>. </p>
         </div>
-        <div class="customButton" onclick="toggleResumeView()" onmouseover="appearResume()" onmouseleave="hideResume()">
+        <div class="customButton" onclick="toggleResumeView()">
           <img src="Assets/personIcon.png"/>
           <p>View my Resume</p>
         </div>

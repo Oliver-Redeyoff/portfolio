@@ -1,6 +1,7 @@
 var visibleContent = "Home"
 
 function showHome(){
+  window.scrollTo(0, 0);
   var body = document.getElementsByClassName("body")
   var source = `
   <h1>About me</h1>
@@ -35,7 +36,22 @@ function showHome(){
 }
 
 
+function showResume(){
+  window.scrollTo(0, 0);
+  var body = document.getElementsByClassName("body")
+  var source = `
+  <h1>Resume</h1>
+  `
+
+  if(visibleContent != "Home"){
+    body[0].innerHTML = source
+    visibleContent = "Home"
+  }
+}
+
+
 function showMyWork(){
+  window.scrollTo(0, 0);
   var body = document.getElementsByClassName("body")
   var source = `
   <h1>My Work</h1>
@@ -121,6 +137,7 @@ function showMyWork(){
 
 
 function showContact(){
+  window.scrollTo(0, 0);
   var body = document.getElementsByClassName("body")
   var source = `
   <h1>Contact me</h1>
@@ -134,6 +151,27 @@ function showContact(){
   if(visibleContent != "Contact"){
     body[0].innerHTML = source
     visibleContent = "Contact"
+  }
+}
+
+var showingProfile = false
+
+function toggleSocial(){
+  var style = getComputedStyle(document.body);
+  var height = style.getPropertyValue('--header-height');
+  console.log(height)
+
+  var pic = document.getElementById("profilePic")
+  var social = document.getElementById("socialContainer")
+
+  if(showingProfile == false){
+    pic.style.transform = "translateX(calc(260 * " + height +  "/120))"
+    social.style.transform = "translateX(calc(260 * " + height +  "/120))"
+    showingProfile = true
+  } else {
+    pic.style.transform = "translateX(0px)"
+    social.style.transform = "translateX(0px)"
+    showingProfile = false
   }
 }
 
