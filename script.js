@@ -176,6 +176,20 @@ function toggleSocial(){
 }
 
 
+var showingExpandedMenu = false
+function toggleMenu(){
+  var menu = document.getElementById("expandableMenu")
+
+  if(showingExpandedMenu){
+    menu.style.right = "calc(-100% + 30px + var(--header-height) * 0.4)"
+    showingExpandedMenu = false
+  } else {
+    menu.style.right = "-30px"
+    showingExpandedMenu = true
+  }
+}
+
+
 function toggleResumeView(){
   console.log("quit")
   if(document.getElementById("resumeViewHidden")){
