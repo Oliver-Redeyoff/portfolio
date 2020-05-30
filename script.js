@@ -40,12 +40,12 @@ function showResume(){
   window.scrollTo(0, 0);
   var body = document.getElementsByClassName("body")
   var source = `
-  <h1>Resume</h1>
+  <h1>Resume (in progress)</h1>
   `
 
-  if(visibleContent != "Home"){
+  if(visibleContent != "Resume"){
     body[0].innerHTML = source
-    visibleContent = "Home"
+    visibleContent = "Resume"
   }
 }
 
