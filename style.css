@@ -249,7 +249,7 @@ body {
   transition: transform 0.5s;
 }
 .body #aboutMe .customButton:hover img{
-  transform: rotate(360deg);
+  transform: scale(1.08) rotate(10deg);
 }
 .body #aboutMe .customButton p{
   display: inline-block;
