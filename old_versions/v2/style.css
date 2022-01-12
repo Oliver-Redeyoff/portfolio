@@ -1,0 +1,420 @@
+@keyframes box_appear {
+    0% {opacity: 0; transform: scale(1.2);}
+    100% {opacity: 1; transform: scale(1);}
+}
+
+@keyframes appear {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes theme_appear {
+    0% {top: -50%}
+    50% {top: 55%}
+    75% {top: 45%}
+    100% {top: 50%}
+}
+@keyframes theme_disappear {
+    0% {top: 50%}
+    100% {top: 150%}
+}
+
+@keyframes bubble_up {
+    0% {width: 0; height: 0;}
+    100% {width: max(100vh, 100vw); height: max(100vh, 100vw)}
+}
+
+:root {
+    --main-width: 600px;
+    --main-height: 500px;
+
+    --background-color: rgba(0, 0, 0);
+    --box-background-color: rgba(26, 26, 26);
+    --box-default-text-color: rgb(255, 255, 255);
+
+    --box-appear-delay-start: 0.2s;
+    --box-appear-delay-after-start: 0.4s;
+    --box-appear-delay-interval: 0.2s;
+    --box-appear-animation-time: 0.6s;
+
+
+    --content-width: 100vw;
+    --content-height: 100vh;
+
+    --content-background-color: rgba(26, 26, 26);
+    --content-header-background-color: rgba(255, 255, 255, 0.08);
+    --content-default-text-color: rgb(255, 255, 255);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+/**********/
+/** MENU **/
+/**********/
+.menu-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: var(--main-height);
+    width: var(--main-width);
+    box-sizing: border-box;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.box {
+    position: absolute;
+    color: var(--box-default-text-color);
+    box-sizing: border-box;
+    padding: 5px;
+    animation-name: box_appear;
+    animation-duration: var(--box-appear-animation-time);
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+    transition: all 1s;
+}
+
+.widget {
+    position: relative;
+    background-color: var(--box-background-color);
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.widget:hover {
+    transform: scale(1.05);
+}
+
+
+/***************/
+/* Name widget */
+/***************/
+.name {
+    left: 0px;
+    top: 0px;
+    width: calc(var(--main-width) * 0.25);
+    height: calc(var(--main-height) * 0.2);
+    animation-delay: var(--box-appear-delay-start);
+}
+.name h1 {
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 28px;
+    color: #903749;
+}
+
+
+/*******************/
+/* About me widget */
+/*******************/
+.about-me {
+    left: 0px;
+    top: calc(var(--main-height) * 0.2);
+    width: calc(var(--main-width) * 0.25);
+    height: calc(var(--main-height) * 0.3);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*1);
+}
+.about-me h1 {
+    margin: 0px;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+.about-me img {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+}
+
+
+/*********************/
+/* About me 2 widget */
+/*********************/
+.about-me-2 {
+    left: calc(var(--main-width) * 0.25);
+    top: 0px;
+    width: calc(var(--main-width) * 0.6);
+    height: calc(var(--main-height) * 0.15);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*2);
+}
+.about-me-2 Code {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    transform: translateX(-50%) translateY(-50%);
+}
+.about-me-2 span {
+    color: green;
+}
+
+
+/****************/
+/* Theme widget */
+/****************/
+.theme-toggle {
+    left: calc(var(--main-width) * 0.85);
+    top: 0px;
+    width: calc(var(--main-width) * 0.15);
+    height: calc(var(--main-height) * 0.15);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*3);
+}
+.theme-toggle img{
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 60%;
+}
+.theme-toggle .active {
+    top: 50%;
+    left: 50%;
+    animation-name: theme_appear;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+}
+.theme-toggle .inactive {
+    top: 150%;
+    left: 50%;
+    animation-name: theme_disappear;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+
+
+/******************/
+/* Contact widget */
+/******************/
+.contact {
+    left: 0px;
+    top: calc(var(--main-height) * 0.5);
+    width: calc(var(--main-width) * 0.25);
+    height: calc(var(--main-height) * 0.5);
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*4);
+}
+.contact h1 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    margin: 0px;
+    font-size: 24px;
+    text-align: center;
+}
+.contact span {
+    font-size: 70px;
+}
+
+
+/*****************/
+/* Github widget */
+/*****************/
+.github {
+    left: calc(var(--main-width) * 0.25);
+    top: calc(var(--main-height) * 0.65);
+    width: calc(var(--main-width) * 0.25);
+    height: calc(var(--main-height) * 0.35);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*5);
+}
+.github img {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 60%;
+    transform: translateX(-50%) translateY(-50%);
+    filter: brightness(0) invert(1);
+}
+.github h1 {
+    position: absolute;
+    margin: 0px;
+    font-size: 18px;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+
+/*******************/
+/* Linkedin widget */
+/*******************/
+.linkedin {
+    left: calc(var(--main-width) * 0.5);
+    top: calc(var(--main-height) * 0.65);
+    width: calc(var(--main-width) * 0.25);
+    height: calc(var(--main-height) * 0.35);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*6);
+}
+.linkedin img {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.linkedin h1 {
+    position: absolute;
+    margin: 0px;
+    font-size: 18px;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+
+/******************/
+/* Twitter widget */
+/******************/
+.twitter {
+    left: calc(var(--main-width) * 0.75);
+    top: calc(var(--main-height) * 0.65);
+    width: calc(var(--main-width) * 0.25);
+    height: calc(var(--main-height) * 0.35);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*7);
+}
+.twitter img {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 60%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.twitter h1 {
+    position: absolute;
+    margin: 0px;
+    font-size: 18px;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+
+
+/*******************/
+/* Projects widget */
+/*******************/
+.projects {
+    left: calc(var(--main-width) * 0.25);
+    top: calc(var(--main-height) * 0.15);
+    width: calc(var(--main-width) * 0.4);
+    height: calc(var(--main-height) * 0.5);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*8);
+}
+.projects img {
+    position: absolute;
+    left: 0px;
+    top: 85%;
+    width: 400px;
+    transform: translateX(-50%) translateY(-50%) rotate(130deg);
+}
+.projects h1 {
+    position: absolute;
+    margin: 0px;
+    font-size: 24px;
+    left: 70%;
+    top: 20%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+/*****************/
+/* Resume widget */
+/*****************/
+.resume {
+    left: calc(var(--main-width) * 0.65);
+    top: calc(var(--main-height) * 0.15);
+    width: calc(var(--main-width) * 0.35);
+    height: calc(var(--main-height) * 0.5);
+    font-size: 28px;
+    animation-delay: calc(var(--box-appear-delay-start) + var(--box-appear-delay-after-start) + var(--box-appear-delay-interval)*9);
+}
+.resume img {
+    position: absolute;
+    left: 85%;
+    top: 15%;
+    width: 200px;
+    transform: translateX(-50%) translateY(-50%) rotate(-130deg);
+}
+.resume h1 {
+    position: absolute;
+    margin: 0px;
+    font-size: 24px;
+    left: 30%;
+    top: 80%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+/*************/
+/** CONTENT **/
+/*************/
+.content-container {
+    position: absolute;
+    top: calc(150vh - var(--content-height)/2);
+    left: calc(50vw - var(--content-width)/2);
+    overflow: scroll;
+    color: var(--content-default-text-color);
+    height: var(--content-height);
+    width: var(--content-width);
+    box-sizing: border-box;
+    transition: all 0.5s;
+}
+
+.content-container .return-menu {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.content-container .return-menu:hover {
+    transform: scale(1.1);
+}
+
+
+.about-me-content {
+    margin: 115px 25% 0px 25%;
+    padding: 25px;
+    background-color: var(--content-background-color);
+    border-radius: 10px;
+}
+.about-me-content h1 {
+    margin: 0px;
+    margin-bottom: 20px;
+    color: #903749;
+}
+.about-me-content p {
+    font-size: 18px;
+}

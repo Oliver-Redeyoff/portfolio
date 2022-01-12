@@ -1,0 +1,109 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+    <script src="script.js"></script>
+    <script src="contentSections.js"></script>
+</head>
+
+<body onload="detectTheme()">
+
+    <div class="menu-container">
+        <div class="menu">
+
+            <div class="box name" onclick="selectWidget('about-me')"><div class="widget">
+                <h1>Oliver Redeyoff</h1>
+            </div></div>
+
+            <div class="box about-me" onclick="selectWidget('about-me')"><div class="widget">
+                <h1>Student at</h1>
+                <img src="bath_logo.png"></img>
+            </div></div>
+            
+            <div class="box about-me-2" onclick="selectWidget('about-me')"><div class="widget">
+                <Code><span>~$</span> Computer_scientist</Code>
+            </div></div>
+            
+            <div class="box theme-toggle" onclick="toggleTheme()"><div class="widget">
+                <img id="dark_theme" class="active" src="moon.png"></img>
+                <img id="light_theme" class="inactive" src="sun.png"></img>
+            </div></div>
+            
+            <div class="box contact" onclick="selectWidget('contact')"><div class="widget">
+                <h1>Contact<br>me<br><span>@</span></h1>
+            </div></div>
+            
+            <div class="box projects" onclick="selectWidget('projects')"><div class="widget">
+                <img src="raspberriPi.png"></img>
+                <h1>Projects</h1>
+            </div></div>
+
+            <div class="box resume" onclick="selectWidget('resume')"><div class="widget">
+                <img src="resume.png"></img>
+                <h1>Resume</h1>
+            </div></div>
+            
+            <div class="box github" onclick="selectWidget('github')"><div class="widget">
+                <img src="githubIcon.png"></img>
+                <h1>Github</h1>
+            </div></div>
+
+            <div class="box linkedin" onclick="selectWidget('linkedin')"><div class="widget">
+                <img src="linkedin.png"></img>
+                <h1>Linkedin</h1>
+            </div></div>
+            
+            <div class="box twitter" onclick="selectWidget('twitter')"><div class="widget">
+                <img src="twitter.png"></img>
+                <h1>Twitter</h1>
+            </div></div>
+        
+        </div>
+    </div>
+
+    <div id="content-container" class="content-container">
+        <img class="return-menu" onclick="returnMenu()" src="upIcon.svg"></img>
+
+        <div id="content">
+            <div class="projects-content">
+                <h1>Projects</h1>
+
+                <div class="project-container">
+
+                    <div class="project-box">
+                        <div class="project-text">
+                            <h2 class="project-title">Waste2O</h2>
+                            <div class="project-tags"><span>WebDev</span></div>
+                            <hr>
+                            <p class="project-summary">A website I made which allows users to find alternative zero-waste products.</p>
+                        </div>
+                        <div class="project-links">
+                            <div><img src="githubIcon.png"></img></div>
+                            <div><img src="link.png"></img></div>
+                        </div>
+                    </div>
+                    <div class="project-img"></div>
+
+                </div>
+
+                <div class="project-container">
+
+                    <div class="project-box">
+                        <div class="project-text">
+                            <h2 class="project-title">Waste2O</h2>
+                            <div class="project-tags"><span>WebDev</span></div>
+                            <hr>
+                            <p class="project-summary">A website I made which allows users to find alternative zero-waste products.</p>
+                        </div>
+                        <div class="project-links">
+                            <div><img src="githubIcon.png"></img></div>
+                            <div><img src="link.png"></img></div>
+                        </div>
+                    </div>
+                    <div class="project-img"></div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>

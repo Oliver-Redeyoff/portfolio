@@ -1,0 +1,118 @@
+.projects-content {
+    width: 800px;
+    margin: 0px auto;
+    margin-top: 115px;
+    overflow: scroll;
+}
+.projects-content h1 {
+    margin: 0px;
+    margin-bottom: 40px;
+    color: #903749;
+}
+
+.project-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 40px;
+}
+.project-container .project-box {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    left: 0px;
+    bottom: 0px;
+    background-color: var(--content-background-color);
+    -webkit-box-shadow:  15px 15px 27px rgba(0, 0, 0, 0.1), -15px -15px 27px rgba(0, 0, 0, 0.1);
+    box-shadow:  15px 15px 27px rgba(0, 0, 0, 0.1), -15px -15px 27px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+.project-container:hover .project-box {
+    transform: translateY(-2%);
+}
+.project-container .project-img {
+    position: absolute;
+    width: 40%;
+    height: 75%;
+    top: 0px;
+    left: 5%;
+    transition: all 0.4s;
+    -webkit-box-shadow:  15px 15px 27px #e1e1e3;
+    box-shadow:  15px 15px 27px rgba(0, 0, 0, 0.1);
+}
+.project-container:hover .project-img {
+    transform: translateY(-5%);
+}
+
+#content .projects-content div:nth-of-type(1) .project-img{
+    background: url("Waste2O.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#content .projects-content div:nth-of-type(2) .project-img{
+    background: url("Waste2O.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.project-container .project-text {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    right: 5%;
+    bottom: 0px;
+    color: var(--content-default-text-color);
+    padding: 15px 0px;
+    box-sizing: border-box;
+}
+.project-container .project-text .project-title {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+.project-container .project-text .project-tags {
+    margin: 0px;
+    margin-bottom: 15px;
+}
+.project-container .project-text .project-tags span{
+    background-color: #903749;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.project-container .project-text hr {
+    margin-bottom: 15px;
+}
+.project-container .project-text .project-summary {
+    margin: 0px;
+}
+
+.project-links {
+    position: absolute;
+    left: 5%;
+    width: 45%;
+    bottom: 10px;
+    text-align: left;
+}
+.project-links div {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: black;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.project-links div img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: auto;
+    height: auto;
+    filter: brightness(0) invert(1);
+    transform: translateX(-50%) translateY(-50%);
+}

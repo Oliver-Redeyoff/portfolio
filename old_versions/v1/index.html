@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <meta charset = "utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Assets/profile4icon.png">
+    <title>Oliver Redeyoff</title>
+    <meta name="description" content="Personal  website for Oliver Redeyoff">
+    <meta name="keywords" content="Oliver Redeyoff, Developer, Portfolio">
+    <meta name="author" content="Oliver Redeyoff">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Slab:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="myWork.css" />
+    <script src="script.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163498846-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-163498846-1');
+    </script>
+    <script>
+      // resize header when scrolling
+      let root = document.documentElement;
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        console.log("scrolling")
+        if (window.innerWidth>600) {
+          if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            root.style.setProperty("--header-height", "90px")
+          } else {
+            root.style.setProperty("--header-height", "120px")
+          }
+        }
+      }
+    </script>
+
+  </head>
+
+
+
+  <body>
+    <div class="header" id="dynHeader">
+
+      <div id="me" onclick="toggleSocial()">
+        <div id="socialContainer">
+          <h2><img src="Assets/github-logo.png"/><a href="https://www.linkedin.com/in/oliver-redeyoff/">Oliver-Redeyoff</a></h2>
+          <h2><img src="Assets/linkedin.png"/><a href="https://github.com/Oliver-Redeyoff">oliver-redeyoff</a></h2>
+        </div>
+        <img src="Assets/profile4-min.png" id="profilePic" alt="Oliver Redeyoff"/>
+        <div id="name">
+          <h1>Oliver Redeyoff</h1>
+          <h2>Software developer</h2>
+        </div>
+      </div>
+
+      <div id="menu">
+        <h2 onclick="showHome()">Home</h2>
+        <!-- <h2 onclick="showResume()">Resume</h2> -->
+        <h2 onclick="showMyWork()">Work</h2>
+        <h2 onclick="showContact()" id="lastMenu">Contact</h2>
+      </div>
+
+      <div id="expandableMenu">
+        <img id="menuMin" src="Assets/3-lines.png" onclick="toggleMenu()"></img>
+        <div id="menuBody">
+          <h2 onclick="showHome()">Home</h2>
+          <!-- <h2 onclick="showResume">Resume</h2> -->
+          <h2 onclick="showMyWork()">Work</h2>
+          <h2 onclick="showContact()" id="lastMenu">Contact</h2>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="body">
+
+      <h1>About me</h1>
+      <div id="aboutMe">
+
+        <div id="text">
+          <p>I am a Computer-Science student, currently studying at the University
+          of Bath. I am passionate about my subject and love to further my knowledge through
+          pratical projects and research.</p>
+        </div>
+        <div class="customButton" onclick="showMyWork()">
+          <img src="Assets/fileIcon.png"/>
+          <p>View my work</p>
+        </div>
+
+        <div id="text">
+          <p>I am currently completing the second year of my degree and am looking
+            for a work placement. You can view my Resume <a onclick="toggleResumeView()">here</a>, and can contact me <a onclick="showContact()">here</a>. </p>
+        </div>
+        <div class="customButton" onclick="toggleResumeView()">
+          <img src="Assets/personIcon.png"/>
+          <p>View my Resume</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="resumeViewHidden" onclick="toggleResumeView()">
+      <img id="close" src="Assets/close.png"></img>
+      <iframe id="resume" src="Assets/resume.pdf" width="75%" height="90%">
+    </div>
+
+  </body>
+
+</html>
