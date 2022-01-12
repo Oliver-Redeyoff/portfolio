@@ -132,7 +132,7 @@ function replaceUrls(text) {
   }
 }
 
-Typer.speed = 15;
+Typer.speed = 5;
 Typer.text = content;
 Typer.init();
 
