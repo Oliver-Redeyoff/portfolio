@@ -35,6 +35,17 @@ body {
 	vertical-align: middle;
 	margin-left: 10px;
 }
+@media screen and (max-width: 415px) {
+	#header img {
+		width: 20px;
+		display: inline;
+		vertical-align: middle;
+	}
+	#header span {
+		margin-left: 5px;
+		font-size: 75%;
+	}
+}
 
 .theme-toggle {
 	float: right;
