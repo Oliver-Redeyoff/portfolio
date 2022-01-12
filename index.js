@@ -1,8 +1,27 @@
+var theme = "dark";
+
+function detectTheme(){
+    if(!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        toggleTheme("light");
+    }
+}
+
+function toggleTheme(set_theme){
+  theme = set_theme;
+
+  document.getElementById("dark_theme").className = theme=="dark" ? "active" : "inactive";
+  document.getElementById("light_theme").className = theme=="light" ? "active" : "inactive";
+  
+  let root = document.documentElement;
+  root.style.setProperty('--bg-color', theme=="dark" ? "0, 0, 0" : "240, 240, 240");
+  root.style.setProperty('--text-color', theme=="dark" ? "240, 240, 240" : "0, 0, 0");
+}
+
 var content = `
 <span id="a">OliverRedeyoff@VEGA</span>:<span id="b">~</span><span id="c">$</span> cd OliverRedeyoff/<!-- kjsdfhkjdhsfkjdshfkj -->About_Me
 <span id="a">OliverRedeyoff@VEGA</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->README.txt<br/><br/>
 
-<p>Hey there! My name is <span id="c">Oliver Redeyoff</span>, and I am a passionate <span id="b">software developer</span>.</p>
+<p>Hey there! My name is <span id="b">Oliver Redeyoff</span>, and I am a passionate <span id="b">software developer</span>.</p>
 
 <p>I am currently completing the final year of my <span id="b">Bachelor's in Computer Science</span> from the University of Bath.</p>
 
@@ -113,7 +132,7 @@ function replaceUrls(text) {
   }
 }
 
-Typer.speed = 3;
+Typer.speed = 15;
 Typer.text = content;
 Typer.init();
 

@@ -5,11 +5,20 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="index.css">
   </head> 
-  <body> 
+  <body onload="detectTheme()"> 
     
     <script type="text/javascript" src="index.js"> 
     </script> 
 
+    <div id="header">
+      <img src="profile4icon.png"/> 
+      <span>Oliver Redeyoff</span>
+
+      <div class="theme-toggle">
+        <img id="dark_theme" class="active" src="moon.png" onclick="toggleTheme('dark')"></img>
+        <img id="light_theme" class="inactive" src="sun.png" onclick="toggleTheme('light')"></img>
+      </div>
+    </div>
     <div id="console"></div> 
 
   </body> 

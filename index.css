@@ -5,26 +5,66 @@
 }
 
 :root {
-	background-color: #000 !important;
+	--bg-color: 0, 0, 0;
+	--text-color: 240, 240, 240;
 }
 
 body {
-	background-color: #000
+	background-color: rgb(var(--bg-color));
+	transition: all 0.4s;
 }
+
+#header {
+	color: rgb(var(--text-color));
+	font-family: courier, monospace;
+	padding: 10px 15px;
+	background-color: rgba(var(--text-color), 0.1);
+	border-radius: 10px;
+	width: 75%;
+	max-width:750px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 75px;
+}
+#header img {
+	width: 30px;
+	display: inline;
+	vertical-align: middle;
+}
+#header span {
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.theme-toggle {
+	float: right;
+	margin-top: -2px;
+}
+.theme-toggle img {
+	padding: 2px;
+}
+.theme-toggle .active {
+	background-color: rgba(var(--text-color), 0.15);
+	border-radius: 5px;
+}
+
 
 #console {
 	font-family: courier, monospace;
-	color: #fff;
-	width:750px;
+	color: rgb(var(--text-color));
+	width: 75%;
+	max-width:750px;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:100px;
+	margin-top:30px;
 	font-size:14px;
 }
 
 a {
 	color: #0bc;
 	text-decoration: none;
+	font-weight: 600;
+	text-decoration: underline;
 }
 
 #a {
