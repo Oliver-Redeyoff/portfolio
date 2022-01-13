@@ -1,7 +1,7 @@
 @keyframes change {
 	0%  { color:  #0f0; }
 	50% { color:  #0f0; }
-	99% { color: black; }
+	100% { color: black; }
 }
 
 :root {
@@ -76,6 +76,9 @@ a {
 	text-decoration: none;
 	font-weight: 600;
 	text-decoration: underline;
+}
+a:hover {
+	background-color: rgba(var(--text-color), 0.1);
 }
 
 #a {
