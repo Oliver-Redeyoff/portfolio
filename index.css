@@ -6,7 +6,7 @@
 
 :root {
 	--bg-color: 0, 0, 0;
-	--text-color: 240, 240, 240;
+	--text-color: 245, 245, 245;
 }
 
 body {
@@ -18,10 +18,10 @@ body {
 	color: rgb(var(--text-color));
 	font-family: courier, monospace;
 	padding: 10px 15px;
-	background-color: rgba(var(--text-color), 0.1);
+	background-color: rgba(var(--text-color), 0.08);
 	border-radius: 10px;
 	width: 75%;
-	max-width:750px;
+	max-width:755px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 75px;
@@ -64,18 +64,20 @@ body {
 	font-family: courier, monospace;
 	color: rgb(var(--text-color));
 	width: 75%;
-	max-width:750px;
+	max-width:760px;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:30px;
+	margin-top:20px;
 	font-size:14px;
 }
 
 a {
+	display: inline-block;
 	color: #0bc;
 	text-decoration: none;
 	font-weight: 600;
 	text-decoration: underline;
+	padding: 5px;
 }
 a:hover {
 	background-color: rgba(var(--text-color), 0.1);

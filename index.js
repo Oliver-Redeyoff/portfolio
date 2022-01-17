@@ -25,11 +25,11 @@ var content = `
 
 <p>I am currently completing the final year of my <span id="b">Bachelor's in Computer Science</span> from the University of Bath.</p>
 
-<p>You can find me on the internet here :<br>
-      <a href="https://www.linkedin.com/in/oliver-redeyoff">Linkedin</a>
-      <a href="https://github.com/Oliver-Redeyoff">Github</a>
-      <a href="https://devpost.com/Oliver-Redeyoff">Devpost</a>
-      <a href="https://stackoverflow.com/users/6123284/oliver-redeyoff">StackOverflow</a>
+<p>You can find me on the internet here : <br>
+  <a href="https://www.linkedin.com/in/oliver-redeyoff">Linkedin</a>
+  <a href="https://github.com/Oliver-Redeyoff">Github</a>
+  <a href="https://devpost.com/Oliver-Redeyoff">Devpost</a>
+  <a href="https://stackoverflow.com/users/6123284/oliver-redeyoff">StackOverflow</a>
 </p>
 
 <p>Feel free to get in touch with me by sending an me an email at <a href="mailto: oliver.redeyoff@gmail.com">oliver.redeyoff@gmail.com</a>.</p>
