@@ -1,0 +1,30 @@
+@keyframes spinAppear {
+  0% { rotate: -360deg; }
+  40% { rotate: 30deg; }
+  60% { rotate: -10deg; }
+  70% { rotate: 5deg; }
+  80% { rotate: 0deg; }
+}
+
+.round-about {
+  animation-name: spinAppear;
+  animation-duration: 1.3s;
+  animation-iteration-count: 1;
+}
+
+.option-text-left,
+.option-text-right {
+  transition: all 0.2s;
+  pointer-events: all;
+  margin-bottom: 20px;
+}
+
+.option-text-left:hover {
+  cursor: pointer;
+  font-size: 120%;
+}
+
+.option-text-right:hover {
+  cursor: pointer;
+  font-size: 120%;
+}
