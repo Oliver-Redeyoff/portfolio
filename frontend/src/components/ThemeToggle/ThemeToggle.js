@@ -29,7 +29,7 @@ function ThemeToggle(props) {
             >
               <img
                 className={
-                  theme == "light" ? "brightness-50" : "brightness-50 invert"
+                  theme == "light" ? "brightness-130" : "brightness-50 invert"
                 }
                 src={theme == "light" ? Sun : Moon}
               />

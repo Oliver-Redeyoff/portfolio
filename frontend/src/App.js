@@ -6,6 +6,8 @@ import ProfilePic from "./assets/profile_2.png";
 import RoundAbout from "./components/RoundAbout/RoundAbout";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 
+import AboutView from "./views/about/AboutView";
+
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -51,9 +53,9 @@ function App() {
 
   return (
     <div className={"font-mono " + theme}>
-      <div className="flex h-screen flex-row gap-10 bg-white transition-all delay-300 dark:bg-slate-600">
+      <div className="flex h-screen flex-row overflow-hidden bg-gray-50 text-slate-800 transition-all delay-300 dark:bg-slate-600 dark:text-slate-50">
         {/* header */}
-        <div className="relative h-screen w-[360px]">
+        <div className="relative h-screen w-[300px]">
           {/* <div className="space flex h-52 items-start justify-between gap-20 pe-16 ps-16"> */}
           {/* profile pic */}
           {/* <div className="flex h-48 w-24 justify-center">
@@ -68,7 +70,10 @@ function App() {
           </div> */}
 
           {/* round about */}
-          <div className="box-border h-[600px] w-[600px] translate-x-[-40%] translate-y-[-40%] transform">
+          <motion.div
+            className="absolute left-[-300px] top-[-300px] box-border h-[600px] w-[600px] rounded-full bg-slate-100 backdrop-blur-md dark:bg-slate-500"
+            whileHover={{ x: 100, y: 100 }}
+          >
             <RoundAbout
               options={sections}
               selectedOption={section}
@@ -76,20 +81,20 @@ function App() {
               selectedAngle={45}
               theme={theme}
             />
-          </div>
+          </motion.div>
 
           {/* theme toggle */}
-          <div className="absolute bottom-0 left-10 flex h-48 w-24 justify-center">
-            <div className="h-[100%] w-16 translate-y-[40%] transform">
+          <div className="absolute bottom-0 left-6 flex h-36 w-24 justify-center">
+            <div className="h-[100%] w-12 translate-y-[40%] transform">
               <ThemeToggle selectedTheme={theme} setSelectedTheme={setTheme} />
             </div>
           </div>
         </div>
 
         {/* body */}
-        <div className="flex-grow">
+        <div className="flex-grow pb-20 pe-20 ps-10 pt-20">
           <Routes>
-            <Route path="/about" element={<>About</>} />
+            <Route path="/about" element={<AboutView />} />
             <Route path="/photography" element={<>Photography</>} />
             <Route path="/projects" element={<>Projects</>} />
             <Route path="/blog" element={<>Blog</>} />
