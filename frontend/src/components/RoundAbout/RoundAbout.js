@@ -30,12 +30,16 @@ function RoundAbout(props) {
           cy={size / 2}
           rx={size / 2 - 10}
           ry={size / 2 - 10}
-          startOffset={(Math.PI * size) / 4 + ((Math.PI * size) / 10) * index}
+          startOffset={(Math.PI * size) / 4.1 + ((Math.PI * size) / 10) * index}
           text={options[key].name}
           textPathProps={{ textAnchor: "middle" }}
           textProps={{
             className: "option-text-left",
-            fill: props.theme == "dark" ? "white" : "black",
+            // fill: props.theme == "dark" ? "white" : "black",
+            fill:
+              props.theme == "dark"
+                ? options[key].darkColor
+                : options[key].lightColor,
             onClick: () => {
               props.setSelectedOption(key);
             },
@@ -55,11 +59,22 @@ function RoundAbout(props) {
         <AnimatePresence>
           {key == props.selectedOption && (
             <motion.div
-              className="absolute bottom-[25%] left-0 flex w-[100%] items-end justify-center text-5xl"
+              className="absolute flex h-[80px] w-[80px] items-center justify-center text-7xl"
+              style={{
+                left:
+                  size / 2 -
+                  40 +
+                  Math.cos((90 - props.selectedAngle) * (Math.PI / 180)) *
+                    (size / 5),
+                top:
+                  size / 2 -
+                  40 +
+                  Math.sin((90 - props.selectedAngle) * (Math.PI / 180)) *
+                    (size / 5),
+              }}
               initial={{ opacity: 0, rotate: -180 }}
               animate={{ opacity: 1, rotate: 0 }}
               exit={{ opacity: 0, rotate: 180 }}
-              // transition={{ duration: 1 }}
             >
               {options[props.selectedOption]?.icon}
             </motion.div>
@@ -68,7 +83,7 @@ function RoundAbout(props) {
       ))}
 
       <div
-        className="rotate-[ absolute left-[12%] top-[50%] flex w-[76%] translate-y-[-50%] justify-end dark:text-white"
+        className="absolute left-[12%] top-[50%] flex w-[76%] translate-y-[0%] justify-end transition-all dark:text-white"
         style={{ rotate: 90 - props.selectedAngle + "deg" }}
       >
         {"->"}

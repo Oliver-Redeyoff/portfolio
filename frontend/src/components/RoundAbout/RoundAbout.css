@@ -3,6 +3,7 @@
   transition: all 0.2s;
   pointer-events: all;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .option-text-left:hover,

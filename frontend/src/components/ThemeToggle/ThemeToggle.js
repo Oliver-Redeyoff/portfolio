@@ -21,13 +21,16 @@ function ThemeToggle(props) {
         <AnimatePresence>
           {props.selectedTheme == theme && (
             <motion.div
-              className="absolute left-0 top-0 flex h-[100%] w-[100%] items-end justify-center"
+              className="absolute left-0 top-0 flex h-[100%] w-[100%] items-start justify-center"
               initial={{ rotate: 180, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -180, opacity: 0 }}
+              transition={{ type: "spring", bounce: 0.5 }}
             >
               <img
-                className="brightness-100"
+                className={
+                  theme == "light" ? "brightness-50" : "brightness-50 invert"
+                }
                 src={theme == "light" ? Sun : Moon}
               />
             </motion.div>
