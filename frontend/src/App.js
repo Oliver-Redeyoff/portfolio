@@ -1,8 +1,10 @@
 import "./App.css";
-import ProfilePic from "./assets/profile.JPG";
+import ProfilePic from "./assets/profile_2.png";
 
 import RoundAbout from "./components/RoundAbout/RoundAbout";
+import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
     },
     Projects: {
       name: "Projects",
-      icon: "📓",
+      icon: "🛠️", // 📓
       color: "green-500",
       border: "border-green-400",
     },
@@ -33,20 +35,42 @@ function App() {
     },
   };
 
+  const [theme, setTheme] = useState("light");
   const [section, setSection] = useState("About");
 
   return (
-    <div className="font-mono">
-      <div className="h-screen bg-white dark:bg-slate-600">
+    <div className={"font-mono " + theme}>
+      <div className="h-screen bg-white transition-all dark:bg-slate-600">
         {/* header */}
-        <div className="flex ps-8 pe-8 gap-20 h-52">
-          <div className="box-border h-96 w-96 transform translate-y-[-50%]">
-            {/* absolute left-20 top-[-33%] */}
-            <RoundAbout options={sections} selectedOption={section} setSelectedOption={setSection} />
+        <div className="space flex h-52 items-start justify-between gap-20 pe-16 ps-16">
+          {/* profile pic */}
+          <div className="flex h-48 w-24 justify-center">
+            <div className="flex h-[100%] w-16 translate-y-[-40%] transform items-end justify-center">
+              <motion.img
+                className="rounded-full"
+                src={ProfilePic}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              />
+            </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            <h1 className={"text-7xl border-b-4 dark:text-white " + sections[section].border}>{section}</h1>
+          {/* round about */}
+          <div className="box-border h-[600px] w-[600px] translate-y-[-50%] transform">
+            <RoundAbout
+              options={sections}
+              selectedOption={section}
+              setSelectedOption={setSection}
+              selectedAngle={0}
+              theme={theme}
+            />
+          </div>
+
+          {/* theme toggle */}
+          <div className="flex h-48 w-24 justify-center">
+            <div className="h-[100%] w-16 translate-y-[-40%] transform">
+              <ThemeToggle selectedTheme={theme} setSelectedTheme={setTheme} />
+            </div>
           </div>
         </div>
       </div>
