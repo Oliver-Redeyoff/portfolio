@@ -30,7 +30,10 @@ function RoundAbout(props) {
           cy={size / 2}
           rx={size / 2 - 10}
           ry={size / 2 - 10}
-          startOffset={(Math.PI * size) / 4.1 + ((Math.PI * size) / 10) * index}
+          startOffset={
+            (Math.PI * size) / 4.6 +
+            ((Math.PI * size) / props.optionSpacing) * index
+          }
           text={options[key].name}
           textPathProps={{ textAnchor: "middle" }}
           textProps={{
@@ -59,18 +62,18 @@ function RoundAbout(props) {
         <AnimatePresence>
           {key == props.selectedOption && (
             <motion.div
-              className="absolute flex h-[80px] w-[80px] items-center justify-center text-7xl"
+              className="absolute flex h-[80px] w-[80px] items-center justify-center text-6xl"
               style={{
                 left:
                   size / 2 -
                   40 +
                   Math.cos((90 - props.selectedAngle) * (Math.PI / 180)) *
-                    (size / 5),
+                    (size * props.iconPosition),
                 top:
                   size / 2 -
                   40 +
                   Math.sin((90 - props.selectedAngle) * (Math.PI / 180)) *
-                    (size / 5),
+                    (size * props.iconPosition),
               }}
               initial={{ opacity: 0, rotate: -180 }}
               animate={{ opacity: 1, rotate: 0 }}
@@ -83,8 +86,11 @@ function RoundAbout(props) {
       ))}
 
       <div
-        className="absolute left-[12%] top-[50%] flex w-[76%] translate-y-[0%] justify-end transition-all dark:text-white"
-        style={{ rotate: 90 - props.selectedAngle + "deg" }}
+        className="absolute left-[65px] top-[50%] flex translate-y-[0%] justify-end transition-all dark:text-white"
+        style={{
+          rotate: 90 - props.selectedAngle + "deg",
+          width: "calc(100% - 130px)",
+        }}
       >
         {"->"}
       </div>
@@ -93,7 +99,7 @@ function RoundAbout(props) {
         className="round-about box-border h-full w-full rounded-full border-2 border-dotted border-gray-400 p-8"
         animate={{
           rotate:
-            (getIndexOfKey(props.selectedOption) * 380) / 10 -
+            (getIndexOfKey(props.selectedOption) * 380) / props.optionSpacing -
             props.selectedAngle +
             0.1, // we use 380 instead of 360 as it wasn't aligning
         }}

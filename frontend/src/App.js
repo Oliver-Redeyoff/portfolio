@@ -2,9 +2,10 @@ import "./App.css";
 
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
-import ProfilePic from "./assets/profile_2.png";
-import RoundAbout from "./components/RoundAbout/RoundAbout";
-import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
+import ProfilePic from "./assets/profile.JPG";
+import Aerobatics from "./assets/aerobatics.png";
+
+import Header from "./components/Header/Header";
 
 import AboutView from "./views/about/AboutView";
 
@@ -52,56 +53,23 @@ function App() {
   }, [section]);
 
   return (
-    <div className={"font-mono " + theme}>
-      <div className="flex h-screen flex-row overflow-hidden bg-gray-50 text-slate-800 transition-all delay-300 dark:bg-slate-600 dark:text-slate-50">
-        {/* header */}
-        <div className="relative h-screen w-[300px]">
-          {/* <div className="space flex h-52 items-start justify-between gap-20 pe-16 ps-16"> */}
-          {/* profile pic */}
-          {/* <div className="flex h-48 w-24 justify-center">
-            <div className="flex h-[100%] w-16 translate-y-[-40%] transform items-end justify-center">
-              <motion.img
-                className="rounded-full"
-                src={ProfilePic}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              />
-            </div>
-          </div> */}
+    <div className={"h-screen w-screen bg-stone-100 font-sans " + theme}>
+      <motion.div className="relative h-[100%] w-screen">
+        <Header theme={theme} setTheme={setTheme} />
+      </motion.div>
 
-          {/* round about */}
-          <motion.div
-            className="absolute left-[-300px] top-[-300px] box-border h-[600px] w-[600px] rounded-full bg-slate-100 backdrop-blur-md dark:bg-slate-500"
-            whileHover={{ x: 100, y: 100 }}
-          >
-            <RoundAbout
-              options={sections}
-              selectedOption={section}
-              setSelectedOption={setSection}
-              selectedAngle={45}
-              theme={theme}
-            />
-          </motion.div>
-
-          {/* theme toggle */}
-          <div className="absolute bottom-0 left-6 flex h-36 w-24 justify-center">
-            <div className="h-[100%] w-12 translate-y-[40%] transform">
-              <ThemeToggle selectedTheme={theme} setSelectedTheme={setTheme} />
-            </div>
-          </div>
-        </div>
-
-        {/* body */}
-        <div className="flex-grow pb-20 pe-20 ps-10 pt-20">
-          <Routes>
-            <Route path="/about" element={<AboutView />} />
-            <Route path="/photography" element={<>Photography</>} />
-            <Route path="/projects" element={<>Projects</>} />
-            <Route path="/blog" element={<>Blog</>} />
-            <Route path="*" element={<Navigate to="/about" />} />
-          </Routes>
-        </div>
-      </div>
+      {/* round about */}
+      {/* <motion.div className="content-block absolute left-[20px] top-[20px] box-border aspect-square w-[20%] min-w-[300px] p-6">
+        <RoundAbout
+          options={sections}
+          selectedOption={section}
+          setSelectedOption={setSection}
+          optionSpacing={5}
+          selectedAngle={45}
+          iconPosition={0}
+          theme={theme}
+        />
+      </motion.div> */}
     </div>
   );
 }

@@ -2,8 +2,7 @@ import "./ThemeToggle.css";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import Sun from "../../assets/sun.png";
-import Moon from "../../assets/moon.png";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 function ThemeToggle(props) {
   const themes = ["light", "dark"];
@@ -27,12 +26,14 @@ function ThemeToggle(props) {
               exit={{ rotate: -180, opacity: 0 }}
               transition={{ type: "spring", bounce: 0.5 }}
             >
-              <img
+              {theme == "light" && <SunIcon />}
+              {theme == "dark" && <MoonIcon />}
+              {/* <img
                 className={
                   theme == "light" ? "brightness-130" : "brightness-50 invert"
                 }
                 src={theme == "light" ? Sun : Moon}
-              />
+              /> */}
             </motion.div>
           )}
         </AnimatePresence>
