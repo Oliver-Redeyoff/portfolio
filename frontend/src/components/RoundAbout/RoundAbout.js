@@ -22,7 +22,7 @@ function RoundAbout(props) {
     const index = getIndexOfKey(key);
 
     return (
-      <div key={key} className="pointer-events-none absolute left-0 top-0">
+      <div key={key} className="pointer-events-none absolute left-0 top-0 font-bold text-xl">
         <ReactCurvedText
           width={size}
           height={size}
@@ -62,19 +62,19 @@ function RoundAbout(props) {
         <AnimatePresence>
           {key == props.selectedOption && (
             <motion.div
-              className="absolute flex h-[80px] w-[80px] items-center justify-center text-6xl"
-              style={{
-                left:
-                  size / 2 -
-                  40 +
-                  Math.cos((90 - props.selectedAngle) * (Math.PI / 180)) *
-                    (size * props.iconPosition),
-                top:
-                  size / 2 -
-                  40 +
-                  Math.sin((90 - props.selectedAngle) * (Math.PI / 180)) *
-                    (size * props.iconPosition),
-              }}
+              className="absolute flex h-[100%] w-[100%] top-0 left-0 items-center justify-center text-6xl"
+              // style={{
+              //   left:
+              //     size / 2 -
+              //     40 +
+              //     Math.cos((90 - props.selectedAngle) * (Math.PI / 180)) *
+              //       (size * props.iconPosition),
+              //   top:
+              //     size / 2 -
+              //     40 +
+              //     Math.sin((90 - props.selectedAngle) * (Math.PI / 180)) *
+              //       (size * props.iconPosition),
+              // }}
               initial={{ opacity: 0, rotate: -180 }}
               animate={{ opacity: 1, rotate: 0 }}
               exit={{ opacity: 0, rotate: 180 }}

@@ -28,12 +28,6 @@ function ThemeToggle(props) {
             >
               {theme == "light" && <SunIcon />}
               {theme == "dark" && <MoonIcon />}
-              {/* <img
-                className={
-                  theme == "light" ? "brightness-130" : "brightness-50 invert"
-                }
-                src={theme == "light" ? Sun : Moon}
-              /> */}
             </motion.div>
           )}
         </AnimatePresence>
