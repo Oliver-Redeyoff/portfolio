@@ -38,11 +38,11 @@ function RoundAbout(props) {
           textPathProps={{ textAnchor: "middle" }}
           textProps={{
             className: "option-text-left",
-            fill: props.theme == "dark" ? "white" : "#1e293b",
-            // fill:
-            //   props.theme == "dark"
-            //     ? options[key].darkColor
-            //     : options[key].lightColor,
+            // fill: props.theme == "dark" ? "white" : "#1e293b",
+            fill:
+              props.theme == "dark"
+                ? options[key].darkColor ?? "black"
+                : options[key].lightColor ?? "white",
             onClick: () => {
               props.setSelectedOption(key);
             },

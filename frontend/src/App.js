@@ -5,163 +5,366 @@ import RoundAbout from "./components/RoundAbout/RoundAbout"
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon, CodeBracketIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
-import Aerobatics from './assets/aerobatics.png'
-import Iceland from './assets/iceland_2.0.png'
-import Pilgramage from './assets/pilgrimage.png'
-import CountryRoad from './assets/country_road.png'
+
+// About
 import TwirlyArrow from './assets/twirly_arrow.png'
+import Arrow from './assets/arrow.png'
 import Profile from './assets/profile.png'
+import Bloxd from './assets/bloxd.jpeg'
+import CambridgeConsultants from './assets/cambridge-consultants.png'
+import Cognisess from './assets/cognisess.webp'
+import BathUni from './assets/bathUni.png'
+
+// Photography
+import Buda from './assets/photography/buda.jpg'
+import Building from './assets/photography/building.jpg'
+import CavalairePonton from './assets/photography/cavalaire_ponton.jpg'
+import CavalaireSea from './assets/photography/cavalaire_sea.jpg'
+import CavalaireBeach from './assets/photography/cavalaire_beach.jpg'
+import DealLockdown from './assets/photography/deal_lockdown.jpg'
+import HawaiiCar from './assets/photography/hawaii_car.jpg'
+import HawaiiCliff from './assets/photography/hawaii_cliff.jpg'
+import BluredTilly from './assets/photography/blured_tilly.jpg'
+import Waves from './assets/photography/waves.jpg'
+import Surfboard from './assets/photography/surfboard.jpg'
+import SunRipple  from './assets/photography/sun_ripples.jpg'
 
 const themes = ["light", "dark"]
-const tileClasses = 'bg-slate-50 dark:bg-slate-700 shadow-md shadow-gray-200 dark:shadow-gray-900 p-6'
 
+let sections = {
+	About: {
+		name: "About",
+		path: "/about",
+		icon: "👋",
+		lightColor: "#E3A008",
+		darkColor: "#FCE96A",
+	},
+	Photography: {
+		name: "Photography",
+		path: "/photography",
+		icon: "📷",
+		lightColor: "rgb(145,152,229)",
+		darkColor: "rgb(145,152,229)",
+	},
+	Projects: {
+		name: "Projects",
+		path: "/projects",
+		icon: "🛠️", // 📓
+		lightColor: "rgb(230,100,101)",
+		darkColor: "rgb(230,100,101)",
+	},
+	Blog: {
+		name: "Blog",
+		path: "/blog",
+		icon: "📝",
+		lightColor: "rgb(81,164,138)",
+		darkColor: "rgb(81,164,138)",
+	},
+}
+
+let experiences = [
+	{
+		name: "Bloxd",
+		image: Bloxd,
+		border: "border-r-blue-400",
+		background: "hover:bg-blue-100",
+		dates: "2024 - now",
+		description: "Blablaa laskjdhf lkjashdf lkjahsdlkjfh aslkjdf lajklaslkjdf lkjasdfl kjhasdflkh lkjhfldskajhfl kjhasdlkfjh lkasjfhl",
+	},
+	{
+		name: "Cambridge Consultants",
+		image: CambridgeConsultants,
+		border: "border-r-indigo-400",
+		background: "hover:bg-indigo-100",
+		dates: "2022 - 2024",
+		description:
+			"I joined Cambridge Consultants as a graduate, and have worked on many projects ranging from " +
+			"writing firmware for embedded devices, to leading the development of web based tools used to " +
+			"accelerate the productivity of internal teams.",
+	},
+	{
+		name: "Cognisess",
+		image: Cognisess,
+		border: "border-r-purple-800",
+		background: "hover:bg-purple-100",
+		dates: "2021 - 2022",
+		description:
+			"I was recruited by Cognisess for my placement year as part of my degree. Here, I worked in a team " +
+			"to maintain and develop a web-app used by many companies for recruitment and employee " +
+			"management. I used technologies such as Angular, DotNet, Git, SQL and Azure cloud on a daily " +
+			"basis, and had a range responsibilities — developing new features, fixing bugs, reviewing pull " +
+			"requests, and managing releases to test and production environments.",
+	},
+	{
+		name: "University of Bath",
+		image: BathUni,
+		border: "border-r-amber-400",
+		background: "hover:bg-amber-100",
+		dates: "2018 - 2022",
+		description: "I graduated with first-class honours, with an overall average of 70.54%.",
+	},
+	{
+		name: "Born",
+		image: Bloxd,
+		border: "border-r-blue-400",
+		background: "hover:bg-blue-100",
+		dates: "2000",
+		description: "Waaaa",
+	},
+]
+
+let photos = [
+	{
+		name: "Buda",
+		image: Buda,
+	},
+	{
+		name: "Building",
+		image: Building,
+	},
+	{
+		name: "French Pier",
+		image: CavalairePonton,
+	},
+	{
+		name: "Cavalaire Sea",
+		image: CavalaireSea,
+	},
+	{
+		name: "Cavalaire Beach",
+		image: CavalaireBeach,
+	},
+	{
+		name: "Deal Lockdown",
+		image: DealLockdown,
+	},
+	{
+		name: "Hawaii Car",
+		image: HawaiiCar,
+	},
+	{
+		name: "Hawaii Cliff",
+		image: HawaiiCliff,
+	},
+	{
+		name: "Blured Tilly",
+		image: BluredTilly,
+	},
+	{
+		name: "Waves",
+		image: Waves,
+	},
+	{
+		name: "Surfboard",
+		image: Surfboard,
+	},
+	{
+		name: "Sun Ripple",
+		image: SunRipple,
+	},
+]
 
 function App() {
-	let sections = {
-		About: {
-			name: "About",
-			path: "/about",
-			icon: "👋",
-			lightColor: "rgb(228,182,55)",
-			darkColor: "rgb(228,182,55)",
-			backgroundImage: CountryRoad,
-		},
-		Photography: {
-			name: "Photography",
-			path: "/photography",
-			icon: "📷",
-			lightColor: "rgb(145,152,229)",
-			darkColor: "rgb(145,152,229)",
-			backgroundImage: Iceland,
-		},
-		Projects: {
-			name: "Projects",
-			path: "/projects",
-			icon: "🛠️", // 📓
-			lightColor: "rgb(230,100,101)",
-			darkColor: "rgb(230,100,101)",
-			backgroundImage: Pilgramage,
-		},
-		Blog: {
-			name: "Blog",
-			path: "/blog",
-			icon: "📝",
-			lightColor: "rgb(81,164,138)",
-			darkColor: "rgb(81,164,138)",
-			backgroundImage: Aerobatics,
-		},
-	};
-
 	const navigate = useNavigate()
 	const [theme, setTheme] = useState("light")
 	const [section, setSection] = useState("About")
+	const [selectedExperience, setSelectedExperience] = useState("Bloxd")
 
 	useEffect(() => {
 		navigate(sections[section].path)
 	}, [section])
 
 	return (
-		<AnimatePresence>
-			<div className={theme}>
-				<div
-					className={`${theme} flex flex-wrap flex-col gap-6 h-screen w-screen p-6 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}
-				>
-					<motion.div className='flex gap-8 w-full'>
-						{/* round about, theme and quick links */}
-						<motion.div className='flex gap-3 h-80 flex-shrink-0'>
-							<Tile className='w-80 h-80 flex-shrink-0 p-6 rounded-3xl'>
-								<RoundAbout
-									options={sections}
-									selectedOption={section}
-									setSelectedOption={setSection}
-									optionSpacing={5}
-									selectedAngle={45}
-									iconPosition={0}
-									theme={theme}
-								/>
-							</Tile>
+		<div className={theme}>
+			<div
+				className={`${theme} relative flex flex-wrap flex-row gap-6 h-screen w-screen overflow-scroll p-6 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}
+			>
+				<motion.div className='absolute w-full left-0 mx-6 md:w-96 h-80 flex gap-3'>
+					{/* round about */}
+					<Tile className='h-full aspect-square flex-shrink-0 p-6 rounded-3xl'>
+						<RoundAbout
+							options={sections}
+							selectedOption={section}
+							setSelectedOption={setSection}
+							optionSpacing={5}
+							selectedAngle={45}
+							iconPosition={0}
+							theme={theme}
+						/>
+					</Tile>
 
-							<motion.div className='flex flex-col flex-shrink-0 gap-3 h-80'>
+					{/* theme and quick links */}
+					<motion.div className='flex flex-col items-stretch flex-grow gap-3 h-80'>
+						<Tile
+							outerClassName='flex flex-col items-stretch flex-grow'
+							className='flex items-center justify-center flex-grow rounded-xl cursor-pointer'
+							onClick={() => {
+								setTheme(theme === "light" ? "dark" : "light")
+							}}
+						>
+							{themes.map((themeOption) => {
+								return themeOption === theme && (
+									<motion.div
+										initial={{rotate: 180, opacity: 0}}
+										animate={{rotate: 0, opacity: 1}}
+										exit={{rotate: -180, opacity: 0}}
+										transition={{type: "spring", bounce: 0.5}}
+									>
+										{themeOption === "light" && <SunIcon className='w-6 h-6'/>}
+										{themeOption === "dark" && <MoonIcon className='w-6 h-6'/>}
+									</motion.div>
+								)
+							})}
+						</Tile>
+
+						<Tile
+							outerClassName='flex flex-col items-stretch'
+							className='flex items-center justify-center h-16 rounded-xl cursor-pointer'
+						>
+							<CodeBracketIcon className='w-6 h-6'/>
+						</Tile>
+
+						<Tile
+							outerClassName='flex flex-col items-stretch'
+							className='flex items-center justify-center h-16 rounded-xl cursor-pointer'
+						>
+							<BriefcaseIcon className='w-6 h-6'/>
+						</Tile>
+					</motion.div>
+				</motion.div>
+
+				<AnimatePresence>
+					{/********************
+					  *** About Section **
+					  ********************/}
+					{section === "About" && (
+						<div className="flex flex-col items-start content-start gap-6">
+							<div className='flex flex-col md:flex-row gap-6'>
+								<div className='w-96 h-80'/>
+
+								{/* picture */}
+								<motion.div className='relative flex flex-col gap-3 justify-between items-center h-80'>
+									<Tile
+										className='w-60 h-60 rounded-full bg-center bg-cover'
+										style={{backgroundImage: `url(${Profile})`}}
+									/>
+
+									<motion.div
+										className='relative text-xl mr-2'
+										initial={{opacity: 0, scale: 0}}
+										animate={{opacity: 1, scale: 1}}
+										exit={{opacity: 0, scale: 0}}
+									>
+										That's me!
+										<img src={TwirlyArrow}
+											 className='absolute h-28 bottom-0 right-[-2rem] translate-x-[50%] rotate-[28deg] dark:invert'/>
+									</motion.div>
+								</motion.div>
+
+								{/* bio */}
 								<Tile
-									className='flex items-center justify-center w-14 rounded-xl flex-grow'
-									onClick={() => {
-										setTheme(theme === "light" ? "dark" : "light")
-									}}
+									outerClassName='h-80 basis-0 flex-grow'
+									className='h-80 border-2 border-amber-400 dark:border-amber-200 text-2xl rounded-3xl p-10'
 								>
-									{themes.map((themeOption) => {
-										return themeOption === theme && (
-											<motion.div
-												initial={{rotate: 180, opacity: 0}}
-												animate={{rotate: 0, opacity: 1}}
-												exit={{rotate: -180, opacity: 0}}
-												transition={{type: "spring", bounce: 0.5}}
-											>
-												{themeOption === "light" && <SunIcon className='w-6 h-6'/>}
-												{themeOption === "dark" && <MoonIcon className='w-6 h-6'/>}
-											</motion.div>
-										)
-									})}
+									Hey! My name is Oliver Redeyoff, I am a software developer, passionate about the
+									web! I also love photography, coffee and music!
 								</Tile>
+							</div>
 
-								<Tile className='flex items-center justify-center w-14 h-16 rounded-xl'><CodeBracketIcon
-									className='w-6 h-6'/></Tile>
+							<div className='flex flex-grow'>
+								{/* experiences */}
+								<motion.div className='flex-grow w-full'>
+									<Tile
+										outerClassName='h-full w-96'
+										className='flex gap-2 flex-col h-full border-2 border-amber-400 dark:border-amber-200 rounded-3xl p-6'
+									>
+										{experiences.map((experience) => (<>
+											<motion.div
+												className={`relative flex items-stretch cursor-pointer ${experience.background}`}
+												onClick={() => {
+													setSelectedExperience(experience.name)
+												}}
+											>
+												{selectedExperience === experience.name && (
+													<motion.div
+														initial={{opacity: 0}}
+														animate={{opacity: 1}}
+													>
+														<img src={Arrow}
+															 className='absolute w-24 rotate-[-90deg] top-[50%] right-0 translate-y-[-50%] translate-x-[115%] z-10 dark:invert'/>
+														<Tile
+															outerClassName='absolute w-[100vw] min-h-fit max-w-7xl pl-96 pr-36 top-[-1rem] left-12'
+															className='rounded-3xl max-w- p-6 bg-amber-100'
+														>
+															{experience.description}
+														</Tile>
+													</motion.div>)
+												}
 
-								<Tile className='flex items-center justify-center w-14 h-16 rounded-xl'><BriefcaseIcon
-									className='w-6 h-6'/></Tile>
-							</motion.div>
-						</motion.div>
+												<motion.div className={`flex items-center w-9 pr-2 border-r-2 ${experience.border}`}>
+													<img src={experience.image} className='rounded-md'/>
+												</motion.div>
 
-						{/* picture */}
-						<motion.div className='relative flex flex-col gap-3 justify-between items-center h-80'>
-							<Tile
-								className='w-60 h-60 rounded-full bg-center bg-cover'
-								style={{ backgroundImage: `url(${Profile})` }}
-							/>
+												<motion.div className='flex flex-col pl-2'>
+													<motion.div className='text-2xl'>
+														{experience.name}
+													</motion.div>
 
-							<motion.div className='relative text-xl'>
-								That's me!
-								<img src={TwirlyArrow} className='absolute h-28 bottom-0 right-[-2rem] translate-x-[50%] rotate-[28deg]'/>
-							</motion.div>
-						</motion.div>
+													<motion.div className='text-md text-slate-600 dark:text-slate-400'>{experience.dates}</motion.div>
+												</motion.div>
+											</motion.div>
 
-						{/* bio */}
-						<Tile className='flex content-center items-start flex-grow h-80 bg-amber-50 dark:bg-amber-50 text-slate-800 text-3xl rounded-3xl p-10'>
-							Hey! My name is Oliver Redeyoff, I am a software developer, passionate about the web! I also love photography, coffee and music!
-						</Tile>
+											<motion.div className='flex-grow w-9 border-r-2 border-l-gray-300'/>
+										</>))}
+									</Tile>
+								</motion.div>
+							</div>
+						</div>
+					)}
 
-						{/*<Tile*/}
-						{/*	className='flex items-center justify-center w-80 h-80 rounded-3xl flex-grow bg-cover bg-center transition-[background-image] duration-300'*/}
-						{/*	style={{backgroundImage: `url(${sections[section].backgroundImage})`}}*/}
-						{/*>*/}
-						{/*	<motion.div*/}
-						{/*		className='text-slate-50 text-6xl p-3 backdrop-blur-sm rounded-xl'>{section}</motion.div>*/}
-						{/*</Tile>*/}
-					</motion.div>
+					{/*************************
+					 *** Photography Section **
+					 **************************/}
+					{section === "Photography" && (
+						<div className="flex flex-col md:flex-row flex-wrap w-full items-stretch content-start gap-4">
+							<div className='w-96 h-80'/>
 
-					<motion.div className='flex gap-3 flex-grow w-full'>
-						<Tile className='w-96 bg-indigo-100 rounded-3xl'>
-
-						</Tile>
-						<Tile></Tile>
-					</motion.div>
-				</div>
+							{photos.map((photo) => {
+								return <Tile
+									outerClassName='h-80 flex-grow'
+									className='relative h-80 rounded-3xl overflow-hidden bg-center bg-cover'
+									style={{backgroundImage: `url(${photo.image})`}}
+								>
+									<img className='h-80 opacity-0' src={photo.image}/>
+									<div className='absolute bottom-0.5 left-0.5 px-3 py-1 backdrop-blur-md rounded-md rounded-bl-3xl bg-slate-400 bg-opacity-30 text-slate-50'>{photo.name}</div>
+								</Tile>
+							})}
+						</div>
+					)}
+				</AnimatePresence>
 			</div>
-		</AnimatePresence>
-)
+		</div>
+	)
 }
 
 function Tile(props) {
 	return <motion.div
-		className={`bg-slate-50 dark:bg-slate-700 shadow-md shadow-gray-200 dark:shadow-gray-900 ${props.className}`}
-		style={props.style}
-		onClick={props.onClick}
-		initial={{ opacity: 0.5, scale: 0 }}
-		animate={{ opacity: 1, scale: 1 }}
-		whileHover={{ scale: 1.02 }}
-		transition={{ duration: 0.5, type: 'spring' }}
-	>
-		{props.children}
-	</motion.div>
+			className={`${props.outerClassName ?? ""}`}
+		>
+			<motion.div
+				key={props.className}
+				className={`bg-slate-50 dark:bg-slate-700 shadow-md shadow-gray-200 dark:shadow-gray-900 ${props.className ?? ""}`}
+				style={props.style}
+				onClick={props.onClick}
+				initial={{ opacity: 0.5, scale: 0 }}
+				animate={{ opacity: 1, scale: 1 }}
+				exit={{ opacity: 0, scale: 0 }}
+				whileHover={{ scale: 1.02 }}
+				transition={{ duration: 0.5, type: 'spring' }}
+			>
+				{props.children}
+			</motion.div>
+		</motion.div>
 }
 
 export default App
