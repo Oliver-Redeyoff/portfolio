@@ -29,9 +29,15 @@ import Waves from './assets/photography/waves.jpg'
 import Surfboard from './assets/photography/surfboard.jpg'
 import SunRipple  from './assets/photography/sun_ripples.jpg'
 
+// Projects
+import BloxdBg from './assets/bloxd_bg.webp'
+import CreativeBook from './assets/creativebook.png'
+import Picky from './assets/picky.png'
+import CognisessBg from './assets/cognisess_bg.png'
+
 const themes = ["light", "dark"]
 
-let sections = {
+const sections = {
 	About: {
 		name: "About",
 		path: "/about",
@@ -62,14 +68,14 @@ let sections = {
 	},
 }
 
-let experiences = [
+const experiences = [
 	{
 		name: "Bloxd",
 		image: Bloxd,
 		border: "border-r-blue-400",
 		background: "hover:bg-blue-100",
 		dates: "2024 - now",
-		description: "Blablaa laskjdhf lkjashdf lkjahsdlkjfh aslkjdf lajklaslkjdf lkjasdfl kjhasdflkh lkjhfldskajhfl kjhasdlkfjh lkasjfhl",
+		description: "Working on a multiple player voxel web game with 6+ million monthly player.",
 	},
 	{
 		name: "Cambridge Consultants",
@@ -113,7 +119,7 @@ let experiences = [
 	},
 ]
 
-let photos = [
+const photos = [
 	{
 		name: "Buda",
 		image: Buda,
@@ -164,11 +170,38 @@ let photos = [
 	},
 ]
 
+const projects = [
+	{
+		name: "Bloxd",
+		image: BloxdBg,
+		description: "6 million monthly player voxel multiplayer game",
+		link: "https://bloxd.io",
+	},
+	{
+		name: "Picky",
+		image: Picky,
+		description: "Check out what others think about their careers and then decide on yours",
+		link: "https://picky.careers",
+	},
+	{
+		name: "Creative Book",
+		image: CreativeBook,
+		description: "Connects freelance creatives across Northumberland, with businesses who are looking to hire a certain skill set",
+		link: "https://www.creativebooknorthumberland.com",
+	},
+	{
+		name: "Cognisess",
+		image: CognisessBg,
+		description: "Recruitment and employee management platform",
+		link: "https://cognisess.com",
+	},
+]
+
 function App() {
 	const navigate = useNavigate()
 	const [theme, setTheme] = useState("light")
 	const [section, setSection] = useState("About")
-	const [selectedExperience, setSelectedExperience] = useState("Bloxd")
+	const [selectedExperience, setSelectedExperience] = useState(experiences[0])
 
 	useEffect(() => {
 		navigate(sections[section].path)
@@ -177,9 +210,9 @@ function App() {
 	return (
 		<div className={theme}>
 			<div
-				className={`${theme} relative flex flex-wrap flex-row gap-6 h-screen w-screen overflow-scroll p-6 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}
+				className={`${theme} relative flex flex-wrap flex-row gap-6 h-screen w-screen overflow-y-scroll overflow-x-hidden p-6 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}
 			>
-				<motion.div className='absolute w-full left-0 mx-6 md:w-96 h-80 flex gap-3'>
+				<motion.div className='absolute w-full left-0 md:w-96 h-80 px-6 md:px-0 md:mx-6 flex gap-3'>
 					{/* round about */}
 					<Tile className='h-full aspect-square flex-shrink-0 p-6 rounded-3xl'>
 						<RoundAbout
@@ -242,7 +275,7 @@ function App() {
 							<div className='flex flex-col md:flex-row gap-6'>
 								<div className='w-96 h-80'/>
 
-								{/* picture */}
+								{/* Picture */}
 								<motion.div className='relative flex flex-col gap-3 justify-between items-center h-80'>
 									<Tile
 										className='w-60 h-60 rounded-full bg-center bg-cover'
@@ -273,35 +306,20 @@ function App() {
 
 							<div className='flex flex-grow'>
 								{/* experiences */}
-								<motion.div className='flex-grow w-full'>
+								<motion.div className='flex flex-col gap-6 md:flex-row flex-grow w-full'>
 									<Tile
-										outerClassName='h-full w-96'
+										outerClassName='h-full w-96 flex-shrink-0'
 										className='flex gap-2 flex-col h-full border-2 border-amber-400 dark:border-amber-200 rounded-3xl p-6'
 									>
 										{experiences.map((experience) => (<>
 											<motion.div
 												className={`relative flex items-stretch cursor-pointer ${experience.background}`}
 												onClick={() => {
-													setSelectedExperience(experience.name)
+													setSelectedExperience(experience)
 												}}
 											>
-												{selectedExperience === experience.name && (
-													<motion.div
-														initial={{opacity: 0}}
-														animate={{opacity: 1}}
-													>
-														<img src={Arrow}
-															 className='absolute w-24 rotate-[-90deg] top-[50%] right-0 translate-y-[-50%] translate-x-[115%] z-10 dark:invert'/>
-														<Tile
-															outerClassName='absolute w-[100vw] min-h-fit max-w-7xl pl-96 pr-36 top-[-1rem] left-12'
-															className='rounded-3xl max-w- p-6 bg-amber-100'
-														>
-															{experience.description}
-														</Tile>
-													</motion.div>)
-												}
-
-												<motion.div className={`flex items-center w-9 pr-2 border-r-2 ${experience.border}`}>
+												<motion.div
+													className={`flex items-center w-9 pr-2 border-r-2 ${experience.border}`}>
 													<img src={experience.image} className='rounded-md'/>
 												</motion.div>
 
@@ -310,12 +328,24 @@ function App() {
 														{experience.name}
 													</motion.div>
 
-													<motion.div className='text-md text-slate-600 dark:text-slate-400'>{experience.dates}</motion.div>
+													<motion.div
+														className='text-md text-slate-600 dark:text-slate-400'>{experience.dates}</motion.div>
 												</motion.div>
 											</motion.div>
 
 											<motion.div className='flex-grow w-9 border-r-2 border-l-gray-300'/>
 										</>))}
+									</Tile>
+
+									{/*<img*/}
+									{/*	src={Arrow}*/}
+									{/*	className='absolute w-24 rotate-[-90deg] top-[50%] right-0 translate-y-[-50%] translate-x-[115%] z-10 dark:invert'*/}
+									{/*/>*/}
+									<Tile
+										outerClassName=''
+										className='rounded-3xl p-6 mb-10 bg-amber-200 dark:bg-amber-600'
+									>
+										{selectedExperience.description}
 									</Tile>
 								</motion.div>
 							</div>
@@ -341,6 +371,50 @@ function App() {
 							})}
 						</div>
 					)}
+
+					{/**********************
+					 *** Projects Section **
+					 ***********************/}
+					{section === "Projects" && (
+						<div className="flex flex-col md:flex-row flex-wrap w-full items-stretch content-start gap-4">
+							<div className='w-96 h-80'/>
+
+							{projects.map((project) => {
+								return <Tile
+									outerClassName='h-80 w-96 flex-grow'
+									className='relative flex flex-col items-start gap-3 h-80 py-4 px-6 rounded-3xl overflow-hidden cursor-pointer bg-center bg-cover'
+									style={{backgroundImage: `url(${project.image})`}}
+									onClick={() => {
+										window.open(project.link)
+									}}
+								>
+									<div className='absolute w-full h-full top-0 left-0 backdrop-brightness-75 z-0' />
+									<div
+										className='py-1 px-2 text-4xl rounded-md font-bold text-slate-50 bg-red-300 bg-opacity-80 backdrop-blur-sm z-10'>
+										{project.name}
+									</div>
+									<div
+										className='py-1 px-2 text-xl rounded-md font-bold text-slate-50 bg-slate-400 bg-opacity-80 backdrop-blur-sm z-10'>
+										{project.description}
+									</div>
+									<div className='absolute bottom-4 right-6 text-2xl font-bold text-red-500 z-10'>-></div>
+								</Tile>
+							})}
+						</div>
+					)}
+
+					{/**********************
+					 *** Projects Section **
+					 ***********************/}
+					{section === "Blog" && (
+						<div className="flex flex-col md:flex-row flex-wrap w-full items-stretch content-start gap-4">
+							<div className='w-96 h-80'/>
+
+							<Tile
+								className='py-3 px-4 rounded-xl'
+							>Nothing here yet!</Tile>
+						</div>
+					)}
 				</AnimatePresence>
 			</div>
 		</div>
@@ -349,7 +423,7 @@ function App() {
 
 function Tile(props) {
 	return <motion.div
-			className={`${props.outerClassName ?? ""}`}
+		className={`${props.outerClassName ?? ""}`}
 		>
 			<motion.div
 				key={props.className}
