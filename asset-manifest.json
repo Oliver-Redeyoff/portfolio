@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7505fbbe.css",
+    "main.js": "/static/js/main.503d4bae.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/profile.png": "/static/media/profile.7ffdacb421049aac6a1d.png",
+    "static/media/creativebook.png": "/static/media/creativebook.7c8ef3f308a584965cad.png",
+    "static/media/hawaii_car.jpg": "/static/media/hawaii_car.825eef8aa4db19d6fe9d.jpg",
+    "static/media/picky.png": "/static/media/picky.8126be4cb7f4b2077325.png",
+    "static/media/surfboard.jpg": "/static/media/surfboard.d4d74f60b1ea4e130658.jpg",
+    "static/media/hawaii_cliff.jpg": "/static/media/hawaii_cliff.7317a20a80339bf46347.jpg",
+    "static/media/blured_tilly.jpg": "/static/media/blured_tilly.f8eb177cbf773fce46bf.jpg",
+    "static/media/cambridge-consultants.png": "/static/media/cambridge-consultants.148b5819a94af1e8ed1b.png",
+    "static/media/waves.jpg": "/static/media/waves.c09ca4a6b9342b341739.jpg",
+    "static/media/sun_ripples.jpg": "/static/media/sun_ripples.749ac50443cb67059446.jpg",
+    "static/media/building.jpg": "/static/media/building.cfe4c9eca34cfbfe9612.jpg",
+    "static/media/buda.jpg": "/static/media/buda.8d32f698603903b984fa.jpg",
+    "static/media/deal_lockdown.jpg": "/static/media/deal_lockdown.3320652bd79f11845d34.jpg",
+    "static/media/cavalaire_sea.jpg": "/static/media/cavalaire_sea.5562f1641eb142bb42ee.jpg",
+    "static/media/cavalaire_ponton.jpg": "/static/media/cavalaire_ponton.634d6badfab23722aae3.jpg",
+    "static/media/bloxd_bg.webp": "/static/media/bloxd_bg.3ff4b308468e15c5dc7b.webp",
+    "static/media/cavalaire_beach.jpg": "/static/media/cavalaire_beach.377f4e6073d511355c52.jpg",
+    "static/media/bathUni.png": "/static/media/bathUni.3a68f5c78e6a81299858.png",
+    "static/media/cognisess_bg.png": "/static/media/cognisess_bg.ed98ddc55ef111a88511.png",
+    "static/media/twirly_arrow.png": "/static/media/twirly_arrow.780ee305f67fcddab32d.png",
+    "static/media/bloxd.jpeg": "/static/media/bloxd.b7952cd3a8b4ee2c879f.jpeg",
+    "static/media/cognisess.webp": "/static/media/cognisess.91624c0a40640717e93a.webp",
+    "index.html": "/index.html",
+    "main.7505fbbe.css.map": "/static/css/main.7505fbbe.css.map",
+    "main.503d4bae.js.map": "/static/js/main.503d4bae.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7505fbbe.css",
+    "static/js/main.503d4bae.js"
+  ]
+}
