@@ -70,78 +70,80 @@ function App() {
   }, [section, navigate]);
 
   return (
-    <div className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}>
-      <div
-        className={`relative flex flex-wrap flex-row gap-6 w-full max-w-7xl`}
-      >
-        <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
-          {/* round about */}
-          <Tile className="h-full aspect-square flex-shrink-0 p-6 rounded-3xl">
-            <RoundAbout
-              options={sections}
-              selectedOption={section}
-              setSelectedOption={setSection}
-              optionSpacing={5}
-              selectedAngle={45}
-              iconPosition={0}
-              theme={theme}
-            />
-          </Tile>
-
-          {/* theme and quick links */}
-          <motion.div className="flex flex-col items-stretch flex-grow gap-3 h-80">
-            <Tile
-              outerClassName="flex flex-col items-stretch flex-grow"
-              className="flex items-center justify-center flex-grow rounded-xl cursor-pointer"
-              onClick={() => {
-                setTheme(theme === "light" ? "dark" : "light");
-              }}
-            >
-              {themes.map((themeOption) => {
-                return (
-                  themeOption === theme && (
-                    <motion.div
-                      key={themeOption}
-                      initial={{ rotate: 180, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -180, opacity: 0 }}
-                      transition={{ type: "spring", bounce: 0.5 }}
-                    >
-                      {themeOption === "light" && (
-                        <SunIcon className="w-6 h-6" />
-                      )}
-                      {themeOption === "dark" && (
-                        <MoonIcon className="w-6 h-6" />
-                      )}
-                    </motion.div>
-                  )
-                );
-              })}
+    <div className={theme}>
+        <div className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}>
+        <div
+            className={`relative flex flex-wrap flex-row gap-6 w-full max-w-7xl`}
+        >
+            <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
+            {/* round about */}
+            <Tile className="h-full aspect-square flex-shrink-0 p-6 rounded-3xl">
+                <RoundAbout
+                options={sections}
+                selectedOption={section}
+                setSelectedOption={setSection}
+                optionSpacing={5}
+                selectedAngle={45}
+                iconPosition={0}
+                theme={theme}
+                />
             </Tile>
 
-            <Tile
-              outerClassName="flex flex-col items-stretch"
-              className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
-            >
-              <CodeBracketIcon className="w-6 h-6" />
-            </Tile>
+            {/* theme and quick links */}
+            <motion.div className="flex flex-col items-stretch flex-grow gap-3 h-80">
+                <Tile
+                outerClassName="flex flex-col items-stretch flex-grow"
+                className="flex items-center justify-center flex-grow rounded-xl cursor-pointer"
+                onClick={() => {
+                    setTheme(theme === "light" ? "dark" : "light");
+                }}
+                >
+                {themes.map((themeOption) => {
+                    return (
+                    themeOption === theme && (
+                        <motion.div
+                        key={themeOption}
+                        initial={{ rotate: 180, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: -180, opacity: 0 }}
+                        transition={{ type: "spring", bounce: 0.5 }}
+                        >
+                        {themeOption === "light" && (
+                            <SunIcon className="w-6 h-6" />
+                        )}
+                        {themeOption === "dark" && (
+                            <MoonIcon className="w-6 h-6" />
+                        )}
+                        </motion.div>
+                    )
+                    );
+                })}
+                </Tile>
 
-            <Tile
-              outerClassName="flex flex-col items-stretch"
-              className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
-            >
-              <BriefcaseIcon className="w-6 h-6" />
-            </Tile>
-          </motion.div>
-        </motion.div>
+                <Tile
+                outerClassName="flex flex-col items-stretch"
+                className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
+                >
+                <CodeBracketIcon className="w-6 h-6" />
+                </Tile>
 
-        <AnimatePresence>
-          {section === "About" && <AboutSection />}
-          {section === "Photography" && <PhotographySection />}
-          {section === "Projects" && <ProjectsSection />}
-          {section === "Blog" && <BlogSection />}
-        </AnimatePresence>
-      </div>
+                <Tile
+                outerClassName="flex flex-col items-stretch"
+                className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
+                >
+                <BriefcaseIcon className="w-6 h-6" />
+                </Tile>
+            </motion.div>
+            </motion.div>
+
+            <AnimatePresence>
+            {section === "About" && <AboutSection />}
+            {section === "Photography" && <PhotographySection />}
+            {section === "Projects" && <ProjectsSection />}
+            {section === "Blog" && <BlogSection />}
+            </AnimatePresence>
+        </div>
+        </div>
     </div>
   );
 }
