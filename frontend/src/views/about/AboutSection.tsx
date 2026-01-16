@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Tile from "../../components/Tile/Tile";
 
 import TwirlyArrow from "../../assets/twirly_arrow.png";
@@ -12,8 +12,9 @@ import BathUni from "../../assets/bathUni.png";
 interface Experience {
   name: string;
   image: string;
-  border: string;
-  background: string;
+  accentColor: string;
+  accentBg: string;
+  accentBgHover: string;
   dates: string;
   description: string;
 }
@@ -22,17 +23,19 @@ const experiences: Experience[] = [
   {
     name: "Bloxd",
     image: Bloxd,
-    border: "border-r-blue-400",
-    background: "hover:bg-blue-100",
+    accentColor: "bg-blue-500",
+    accentBg: "bg-blue-500/10 dark:bg-blue-400/10",
+    accentBgHover: "hover:bg-blue-500/20 dark:hover:bg-blue-400/20",
     dates: "2024 - now",
     description:
-      "Working on a multiple player voxel web game with 6+ million monthly player.",
+      "Working on a multiple player voxel web game with 6+ million monthly players.",
   },
   {
     name: "Cambridge Consultants",
     image: CambridgeConsultants,
-    border: "border-r-indigo-400",
-    background: "hover:bg-indigo-100",
+    accentColor: "bg-indigo-500",
+    accentBg: "bg-indigo-500/10 dark:bg-indigo-400/10",
+    accentBgHover: "hover:bg-indigo-500/20 dark:hover:bg-indigo-400/20",
     dates: "2022 - 2024",
     description:
       "I joined Cambridge Consultants as a graduate, and have worked on many projects ranging from " +
@@ -42,8 +45,9 @@ const experiences: Experience[] = [
   {
     name: "Cognisess",
     image: Cognisess,
-    border: "border-r-purple-800",
-    background: "hover:bg-purple-100",
+    accentColor: "bg-purple-500",
+    accentBg: "bg-purple-500/10 dark:bg-purple-400/10",
+    accentBgHover: "hover:bg-purple-500/20 dark:hover:bg-purple-400/20",
     dates: "2021 - 2022",
     description:
       "I was recruited by Cognisess for my placement year as part of my degree. Here, I worked in a team " +
@@ -55,8 +59,9 @@ const experiences: Experience[] = [
   {
     name: "University of Bath",
     image: BathUni,
-    border: "border-r-amber-400",
-    background: "hover:bg-amber-100",
+    accentColor: "bg-amber-500",
+    accentBg: "bg-amber-500/10 dark:bg-amber-400/10",
+    accentBgHover: "hover:bg-amber-500/20 dark:hover:bg-amber-400/20",
     dates: "2018 - 2022",
     description:
       "I graduated with first-class honours, with an overall average of 70.54%.",
@@ -64,10 +69,11 @@ const experiences: Experience[] = [
   {
     name: "Born",
     image: Bloxd,
-    border: "border-r-blue-400",
-    background: "hover:bg-blue-100",
+    accentColor: "bg-rose-500",
+    accentBg: "bg-rose-500/10 dark:bg-rose-400/10",
+    accentBgHover: "hover:bg-rose-500/20 dark:hover:bg-rose-400/20",
     dates: "2000",
-    description: "Waaaa",
+    description: "Waaaa 👶",
   },
 ];
 
@@ -113,51 +119,137 @@ function AboutSection() {
         </Tile>
       </div>
 
-      <div className="flex flex-grow">
-        {/* experiences */}
+      {/* Experience Section */}
+      <div className="flex flex-grow w-full">
         <motion.div className="flex flex-col gap-6 md:flex-row flex-grow w-full">
+          {/* Timeline */}
           <Tile
-            outerClassName="h-full w-96 flex-shrink-0"
-            className="flex gap-2 flex-col h-full border-2 border-amber-400 dark:border-amber-200 rounded-3xl p-6"
+            outerClassName="w-full h-full md:w-auto md:flex-shrink-0"
+            className="h-full rounded-3xl p-5 md:p-6"
           >
-            {experiences.map((experience) => (
-              <div key={experience.name}>
-                <motion.div
-                  className={`relative flex items-stretch cursor-pointer ${experience.background}`}
-                  onClick={() => {
-                    setSelectedExperience(experience);
-                  }}
-                >
+            <h3 className="text-lg font-semibold text-slate-500 dark:text-slate-400 mb-4 tracking-wide uppercase">
+              Experience
+            </h3>
+            <div className="flex flex-col gap-2 relative">
+              {/* Vertical timeline line - centered on icons (p-3 + half of w-10 - half of line width = 12px + 20px - 1px = 31px) */}
+              <div className="absolute left-8 translate-x-[-50%] top-6 bottom-6 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-amber-500 opacity-30" />
+
+              {experiences.map((experience, index) => {
+                const isSelected = selectedExperience.name === experience.name;
+                return (
                   <motion.div
-                    className={`flex items-center w-9 pr-2 border-r-2 ${experience.border}`}
+                    key={experience.name}
+                    className={`relative flex items-center gap-4 p-3 rounded-xl cursor-pointer transition-all duration-200 ${experience.accentBgHover} ${isSelected ? experience.accentBg : ""}`}
+                    onClick={() => setSelectedExperience(experience)}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <img
-                      src={experience.image}
-                      alt={experience.name}
-                      className="rounded-md"
-                    />
-                  </motion.div>
+                    {/* Timeline dot */}
+                    <div className="relative z-10 flex-shrink-0">
+                      <motion.div
+                        className={`w-10 h-10 rounded-full overflow-hidden border-2 ${isSelected ? "border-amber-400 dark:border-amber-300" : "border-slate-300 dark:border-slate-600"} transition-colors duration-200`}
+                        animate={{ scale: isSelected ? 1.1 : 1 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <img
+                          src={experience.image}
+                          alt={experience.name}
+                          className="w-full h-full object-cover bg-slate-50"
+                        />
+                      </motion.div>
+                    </div>
 
-                  <motion.div className="flex flex-col pl-2">
-                    <motion.div className="text-2xl">{experience.name}</motion.div>
+                    {/* Content */}
+                    <div className="flex flex-col min-w-0 flex-grow">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`font-semibold text-lg truncate ${isSelected ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-300"}`}
+                        >
+                          {experience.name}
+                        </span>
+                        {index === 0 && (
+                          <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-600 dark:text-green-400">
+                            Current
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-sm text-slate-500 dark:text-slate-400">
+                        {experience.dates}
+                      </span>
+                    </div>
 
-                    <motion.div className="text-md text-slate-600 dark:text-slate-400">
-                      {experience.dates}
+                    {/* Arrow indicator */}
+                    <motion.div
+                      className="text-slate-400 dark:text-slate-500"
+                      animate={{ opacity: isSelected ? 1 : 0, x: isSelected ? 0 : -10 }}
+                    >
+                      →
                     </motion.div>
                   </motion.div>
-                </motion.div>
-
-                <motion.div className="flex-grow w-9 border-r-2 border-l-gray-300" />
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </Tile>
 
-          <Tile
-            outerClassName=""
-            className="rounded-3xl p-6 mb-10 bg-amber-200 dark:bg-amber-600"
-          >
-            {selectedExperience.description}
-          </Tile>
+          {/* Description Card */}
+          <div className="flex-grow">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedExperience.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
+                className="h-full"
+              >
+                <Tile
+                  outerClassName="h-full"
+                  className="h-full rounded-3xl p-6 md:p-8 flex flex-col"
+                >
+                  {/* Header */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <div
+                      className={`w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-700 ${selectedExperience.accentColor.replace("bg-", "ring-")}`}
+                    >
+                      <img
+                        src={selectedExperience.image}
+                        alt={selectedExperience.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                        {selectedExperience.name}
+                      </h2>
+                      <div className="flex items-center gap-2 mt-1">
+                        <div
+                          className={`w-2 h-2 rounded-full ${selectedExperience.accentColor}`}
+                        />
+                        <span className="text-slate-500 dark:text-slate-400 font-medium">
+                          {selectedExperience.dates}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed flex-grow">
+                    {selectedExperience.description}
+                  </p>
+
+                  {/* Decorative element */}
+                  <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-600">
+                    <div className="flex items-center gap-2 text-sm text-slate-400 dark:text-slate-500">
+                      <span className={`w-3 h-3 rounded-full ${selectedExperience.accentColor}`} />
+                      <span>
+                        {experiences.indexOf(selectedExperience) + 1} of{" "}
+                        {experiences.length} experiences
+                      </span>
+                    </div>
+                  </div>
+                </Tile>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </motion.div>
       </div>
     </div>
