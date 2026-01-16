@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 import Aerobatics from "../../assets/aerobatics.png";
 import Cabin from "../../assets/cabin.png";
@@ -22,6 +22,7 @@ import {
 
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { useEffect, useState } from "react";
+import { ReactNode } from "react";
 
 const backgroundImageUrls = [
   Aerobatics,
@@ -48,7 +49,7 @@ const animateStates = {
     opacity: 1,
     marginLeft: 0,
     transition: {
-      when: "beforeChildren",
+      when: "beforeChildren" as const,
       staggerChildren: 0.1,
     },
   },
@@ -57,7 +58,12 @@ const animateStates = {
   },
 };
 
-function Section(props) {
+interface SectionProps {
+  icon: ReactNode;
+  name: string;
+}
+
+function Section(props: SectionProps) {
   return (
     <motion.div className="section" variants={animateStates}>
       <div className="icon">{props.icon}</div>
@@ -66,17 +72,22 @@ function Section(props) {
   );
 }
 
-function Header(props) {
-  const themes = ["light", "dark"];
+interface HeaderProps {
+  theme: "light" | "dark";
+  setTheme: (theme: "light" | "dark") => void;
+}
 
+function Header(props: HeaderProps) {
   const [backgroundImageIndex, setBackgroundImageIndex] = useState(0);
-  const [backgroundImages, setBackgroundImages] = useState([]);
+  const [backgroundImages, setBackgroundImages] = useState<HTMLImageElement[]>(
+    []
+  );
 
   useEffect(() => {
-    var images = [];
+    const images: HTMLImageElement[] = [];
     for (const url of backgroundImageUrls) {
       const img = new Image();
-      img.src = url; // by setting an src, you trigger browser download
+      img.src = url;
       images.push(img);
     }
     console.log(images);
@@ -85,7 +96,7 @@ function Header(props) {
     const backgroundChangeInterval = setInterval(() => {
       console.log(Math.random());
       setBackgroundImageIndex(
-        Math.floor(Math.random() * backgroundImageUrls.length),
+        Math.floor(Math.random() * backgroundImageUrls.length)
       );
     }, 5000);
 
@@ -96,7 +107,7 @@ function Header(props) {
 
   return (
     <motion.div>
-      <motion.src
+      <motion.div
         className="header-background"
         style={{
           backgroundImage: `url(${

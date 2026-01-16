@@ -1,10 +1,6 @@
 import "./AboutView.css";
 
-import { motion, AnimatePresence } from "framer-motion";
-
-function AboutView(props) {
-  const themes = ["light", "dark"];
-
+function AboutView() {
   return (
     <div className="">
       <h1 className="m-0 mb-8 text-5xl">Hi there!</h1>
