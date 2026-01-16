@@ -70,11 +70,11 @@ function App() {
   }, [section, navigate]);
 
   return (
-    <div className={`${theme} flex justify-center h-screen w-screen overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}>
+    <div className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}>
       <div
-        className={`relative flex flex-wrap flex-row gap-6 p-10 max-w-7xl`}
+        className={`relative flex flex-wrap flex-row gap-6 w-full max-w-7xl`}
       >
-        <motion.div className="absolute w-full left-4 md:w-96 h-80 px-6 md:px-0 md:mx-6 flex gap-3">
+        <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
           {/* round about */}
           <Tile className="h-full aspect-square flex-shrink-0 p-6 rounded-3xl">
             <RoundAbout

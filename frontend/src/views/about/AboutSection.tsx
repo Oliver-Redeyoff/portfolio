@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Tile from "../../components/Tile/Tile";
 
 import TwirlyArrow from "../../assets/twirly_arrow.png";
-import Profile from "../../assets/profile.png";
+import Profile from "../../assets/profile.jpeg";
 import Bloxd from "../../assets/bloxd.jpeg";
 import CambridgeConsultants from "../../assets/cambridge-consultants.png";
 import Cognisess from "../../assets/cognisess.webp";
