@@ -133,6 +133,7 @@ function AppContent() {
                 outerClassName="flex flex-col items-stretch"
                 className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
                 animationDelay={0.1}
+                onClick={() => window.open("https://github.com/Oliver-Redeyoff", "_blank")}
               >
                 <CodeBracketIcon className="w-6 h-6" />
               </Tile>
@@ -141,6 +142,7 @@ function AppContent() {
                 outerClassName="flex flex-col items-stretch"
                 className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
                 animationDelay={0.13}
+                onClick={() => window.open("https://www.linkedin.com/in/oliver-redeyoff/", "_blank")}
               >
                 <BriefcaseIcon className="w-6 h-6" />
               </Tile>
