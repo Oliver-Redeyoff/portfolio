@@ -162,7 +162,7 @@ function ProjectsSection() {
       </div>
 
       {/* Projects Section */}
-      <div className="flex flex-grow w-full">
+      <div className="flex flex-grow w-full min-h-[30rem] max-h-[40rem]">
         <motion.div className="flex flex-col gap-6 md:flex-row flex-grow w-full">
           {/* Project Detail Card */}
           <div className="flex-grow">
@@ -185,14 +185,14 @@ function ProjectsSection() {
                 >
                   {/* Project Image */}
                   <div
-                    className="h-96 bg-cover bg-center relative"
+                    className="flex-grow bg-cover bg-center relative"
                     style={{ backgroundImage: `url(${selectedProject.image})` }}
                   >
-                    <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-slate-50 dark:from-slate-700 to-transparent" />
+                    <div className="absolute bottom-[-2px] left-0 right-0 h-80 bg-gradient-to-t from-slate-50 dark:from-slate-700 to-transparent" />
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10">
+                  <div className="p-6 md:p-8 flex flex-col relative z-10">
                     {/* Header */}
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <div>

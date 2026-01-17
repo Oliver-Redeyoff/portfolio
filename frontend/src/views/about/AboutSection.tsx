@@ -142,7 +142,7 @@ function AboutSection() {
       </div>
 
       {/* Experience Section */}
-      <div className="flex flex-grow w-full">
+      <div className="flex flex-grow w-full max-h-[40rem]">
         <motion.div className="flex flex-col gap-6 md:flex-row flex-grow w-full">
           {/* Timeline */}
           <Tile
