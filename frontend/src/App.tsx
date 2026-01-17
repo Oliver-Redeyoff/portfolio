@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className={theme}>
-        <div className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-mono`}>
+        <div className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800  text-slate-600 dark:text-slate-300 font-mono`}>
         <div className="relative flex flex-wrap flex-row gap-6 w-full max-w-7xl h-fit">
             <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
             {/* round about */}

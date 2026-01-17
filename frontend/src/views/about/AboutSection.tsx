@@ -26,9 +26,14 @@ const experiences: Experience[] = [
     accentColor: "bg-blue-500",
     accentBg: "bg-blue-500/10 dark:bg-blue-400/10",
     accentBgHover: "hover:bg-blue-500/20 dark:hover:bg-blue-400/20",
-    dates: "2024 - now",
+    dates: "2024 - Present",
     description:
-      "Working on a multiple player voxel web game with 6+ million monthly players.",
+      "Early engineer (4th hire) at a high-growth multiplayer sandbox game, helping scale to 8.5M+ monthly active users " +
+      "and 16k+ concurrent players. Principal engineer for production backend infrastructure including DNS, Cloudflare, " +
+      "Nginx, and large-scale server automation for a 550+ server fleet. Designed custom analytics infrastructure using " +
+      "HyperLogLog for DAU/WAU/MAU tracking, architected distributed real-time social systems (friends, parties), and " +
+      "owned frontend UI architecture. Shipped releases across Android, iOS, Microsoft Store, and web platforms, while " +
+      "also owning the ads and monetisation system (adding £30k+ monthly revenue).",
   },
   {
     name: "Cambridge Consultants",
@@ -38,9 +43,9 @@ const experiences: Experience[] = [
     accentBgHover: "hover:bg-indigo-500/20 dark:hover:bg-indigo-400/20",
     dates: "2022 - 2024",
     description:
-      "I joined Cambridge Consultants as a graduate, and have worked on many projects ranging from " +
-      "writing firmware for embedded devices, to leading the development of web based tools used to " +
-      "accelerate the productivity of internal teams.",
+      "Developed embedded firmware for production devices and led development of internal backend and web tools " +
+      "to improve engineering productivity. Worked in agile, cross-disciplinary teams delivering reliable software " +
+      "to external clients across a range of industries.",
   },
   {
     name: "Cognisess",
@@ -48,13 +53,11 @@ const experiences: Experience[] = [
     accentColor: "bg-purple-500",
     accentBg: "bg-purple-500/10 dark:bg-purple-400/10",
     accentBgHover: "hover:bg-purple-500/20 dark:hover:bg-purple-400/20",
-    dates: "2021 - 2022",
+    dates: "2020 - 2021",
     description:
-      "I was recruited by Cognisess for my placement year as part of my degree. Here, I worked in a team " +
-      "to maintain and develop a web-app used by many companies for recruitment and employee " +
-      "management. I used technologies such as Angular, DotNet, Git, SQL and Azure cloud on a daily " +
-      "basis, and had a range responsibilities — developing new features, fixing bugs, reviewing pull " +
-      "requests, and managing releases to test and production environments.",
+      "Developed and maintained a commercial recruitment and employee management platform. Built backend and " +
+      "frontend features using .NET, SQL, AngularJS, and Azure. Contributed across the full lifecycle: features, " +
+      "bug fixes, code reviews, and production releases.",
   },
   {
     name: "University of Bath",
@@ -64,7 +67,8 @@ const experiences: Experience[] = [
     accentBgHover: "hover:bg-amber-500/20 dark:hover:bg-amber-400/20",
     dates: "2018 - 2022",
     description:
-      "I graduated with first-class honours, with an overall average of 70.54%.",
+      "BSc (Hons) Computer Science — First-class honours. Studied a broad curriculum including algorithms, " +
+      "systems programming, machine learning, and software engineering. Completed a placement year at Cognisess.",
   },
   {
     name: "Born",
@@ -192,13 +196,16 @@ function AboutSection() {
 
           {/* Description Card */}
           <div className="flex-grow">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout">
               <motion.div
                 key={selectedExperience.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ 
+                  duration: 0.4,
+                  ease: "easeOut"
+                }}
                 className="h-full"
               >
                 <Tile
@@ -213,7 +220,7 @@ function AboutSection() {
                       <img
                         src={selectedExperience.image}
                         alt={selectedExperience.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover bg-slate-50"
                       />
                     </div>
                     <div>
