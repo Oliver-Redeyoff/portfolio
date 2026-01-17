@@ -6,6 +6,7 @@ import { useLoading } from "../../context/LoadingContext";
 import TwirlyArrow from "../../assets/twirly_arrow.png";
 import Profile from "../../assets/profile.jpeg";
 import Bloxd from "../../assets/bloxd.jpeg";
+import PocheLogo from "../../assets/poche_logo.png";
 import CambridgeConsultants from "../../assets/cambridge-consultants.png";
 import Cognisess from "../../assets/cognisess.webp";
 import BathUni from "../../assets/bathUni.png";
@@ -36,6 +37,18 @@ const experiences: Experience[] = [
       "HyperLogLog for DAU/WAU/MAU tracking, architected distributed real-time social systems (friends, parties), and " +
       "owned frontend UI architecture. Shipped releases across Android, iOS, Microsoft Store, and web platforms, while " +
       "also owning the ads and monetisation system (adding £30k+ monthly revenue).",
+  },
+  {
+    name: "Poche",
+    image: PocheLogo,
+    accentColor: "bg-orange-500",
+    accentBg: "bg-orange-500/10 dark:bg-orange-400/10",
+    accentBgHover: "hover:bg-orange-500/20 dark:hover:bg-orange-400/20",
+    dates: "2025 - Present",
+    description:
+      "Building Poche, a modern read-it-later app designed to help you save and organize articles, videos, and web " +
+      "content for later consumption. Focused on creating a clean, distraction-free reading experience with smart " +
+      "organization features and cross-platform sync.",
   },
   {
     name: "Cambridge Consultants",
@@ -156,7 +169,7 @@ function AboutSection() {
                     {/* Timeline dot */}
                     <div className="relative z-10 flex-shrink-0">
                       <motion.div
-                        className={`w-10 h-10 rounded-full overflow-hidden border-2 flex items-center justify-center ${isSelected ? "border-amber-400 dark:border-amber-300" : "border-slate-300 dark:border-slate-600"} transition-colors duration-200 bg-slate-100 dark:bg-slate-600`}
+                        className={`w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center ring-2 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-700 bg-slate-100 dark:bg-slate-600 transition-all duration-200 ${isSelected ? experience.accentColor.replace("bg-", "ring-") : "ring-slate-300 dark:ring-slate-500"}`}
                         animate={{ scale: isSelected ? 1.1 : 1 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >

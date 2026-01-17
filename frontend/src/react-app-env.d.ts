@@ -25,6 +25,11 @@ declare module "*.svg" {
   export default value;
 }
 
+declare module "*.af" {
+  const value: string;
+  export default value;
+}
+
 declare module "react-curved-text" {
   import { ComponentType } from "react";
   
