@@ -68,9 +68,9 @@ function AppContent() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [section, setSection] = useState<SectionKey>("About");
 
-  useEffect(() => {
-    navigate(sections[section].path);
-  }, [section, navigate]);
+  // useEffect(() => {
+  //   navigate(sections[section].path);
+  // }, [section, navigate]);
 
   return (
     <div className={theme}>
