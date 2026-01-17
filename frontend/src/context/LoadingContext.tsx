@@ -35,7 +35,7 @@ export function LoadingProvider({
     // Set ready state slightly after loading ends to trigger tile animations
     const readyTimer = setTimeout(() => {
       setIsReady(true);
-    }, loadingDuration + 100);
+    }, loadingDuration + 75);
 
     return () => {
       clearTimeout(loadingTimer);

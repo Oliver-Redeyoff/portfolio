@@ -76,9 +76,9 @@ function AppContent() {
     <div className={theme}>
       <Loader isLoading={isLoading} />
       <div
-        className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-mono`}
+        className={`${theme} flex align-middle justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-mono`}
       >
-        <div className="relative flex flex-wrap flex-row gap-6 w-full max-w-7xl h-fit">
+        <div className="relative flex flex-wrap flex-row gap-6 w-full max-w-7xl min-h-fit">
           <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
             {/* round about */}
             <Tile
@@ -101,7 +101,7 @@ function AppContent() {
               <Tile
                 outerClassName="flex flex-col items-stretch flex-grow"
                 className="flex items-center justify-center flex-grow rounded-xl cursor-pointer"
-                animationDelay={0.1}
+                animationDelay={0.07}
                 onClick={() => {
                   setTheme(theme === "light" ? "dark" : "light");
                 }}
@@ -131,7 +131,7 @@ function AppContent() {
               <Tile
                 outerClassName="flex flex-col items-stretch"
                 className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
-                animationDelay={0.15}
+                animationDelay={0.1}
               >
                 <CodeBracketIcon className="w-6 h-6" />
               </Tile>
@@ -139,7 +139,7 @@ function AppContent() {
               <Tile
                 outerClassName="flex flex-col items-stretch"
                 className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
-                animationDelay={0.2}
+                animationDelay={0.13}
               >
                 <BriefcaseIcon className="w-6 h-6" />
               </Tile>
@@ -160,7 +160,7 @@ function AppContent() {
 
 function App() {
   return (
-    <LoadingProvider loadingDuration={1800}>
+    <LoadingProvider loadingDuration={1400}>
       <AppContent />
     </LoadingProvider>
   );

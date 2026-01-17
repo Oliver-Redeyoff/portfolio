@@ -53,7 +53,7 @@ function ProjectsSection() {
             outerClassName="h-80 w-96 flex-grow"
             className="relative flex flex-col items-start gap-3 h-80 py-4 px-6 rounded-3xl overflow-hidden cursor-pointer bg-center bg-cover"
             style={{ backgroundImage: `url(${project.image})` }}
-            animationDelay={0.05 + index * 0.08}
+            animationDelay={0.03 + index * 0.06}
             onClick={() => {
               window.open(project.link);
             }}

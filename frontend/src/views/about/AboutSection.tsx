@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tile from "../../components/Tile/Tile";
+import { useLoading } from "../../context/LoadingContext";
 
 import TwirlyArrow from "../../assets/twirly_arrow.png";
 import Profile from "../../assets/profile.jpeg";
@@ -82,6 +83,7 @@ const experiences: Experience[] = [
 ];
 
 function AboutSection() {
+  const { isReady } = useLoading();
   const [selectedExperience, setSelectedExperience] = useState<Experience>(
     experiences[0]
   );
@@ -96,14 +98,14 @@ function AboutSection() {
           <Tile
             className="w-60 h-60 rounded-full bg-center bg-cover"
             style={{ backgroundImage: `url(${Profile})` }}
-            animationDelay={0.05}
+            animationDelay={0.03}
           />
 
           <motion.div
             className="relative text-xl mr-2"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            animate={isReady ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 10 }}
+            transition={{ delay: isReady ? 0.15 : 0, type: "spring", stiffness: 250, damping: 20 }}
           >
             That's me!
             <img
@@ -118,7 +120,7 @@ function AboutSection() {
         <Tile
           outerClassName="h-80 basis-0 flex-grow"
           className="h-80 border-2 border-amber-400 dark:border-amber-200 text-2xl rounded-3xl p-10"
-          animationDelay={0.1}
+          animationDelay={0.07}
         >
           Hey! My name is Oliver Redeyoff, I am a software developer, passionate
           about the web! I also love photography, coffee and music!
@@ -132,7 +134,7 @@ function AboutSection() {
           <Tile
             outerClassName="w-full h-full md:w-auto md:flex-shrink-0"
             className="h-full rounded-3xl p-5 md:p-6"
-            animationDelay={0.15}
+            animationDelay={0.1}
           >
             <h3 className="text-lg font-semibold text-slate-500 dark:text-slate-400 mb-4 tracking-wide uppercase">
               Experience
@@ -214,7 +216,7 @@ function AboutSection() {
                 <Tile
                   outerClassName="h-full"
                   className="h-full rounded-3xl p-6 md:p-8 flex flex-col"
-                  animationDelay={0.2}
+                  animationDelay={0.13}
                 >
                   {/* Header */}
                   <div className="flex items-start gap-4 mb-6">

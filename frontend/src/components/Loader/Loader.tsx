@@ -10,7 +10,7 @@ function Loader({ isLoading }: LoaderProps) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-slate-100 dark:bg-slate-800"
       initial={{ opacity: 1 }}
       animate={{ opacity: isLoading ? 1 : 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       style={{ pointerEvents: isLoading ? "auto" : "none" }}
     >
       <div className="flex flex-col items-center gap-8">
@@ -21,7 +21,7 @@ function Loader({ isLoading }: LoaderProps) {
             initial={{ x: "-100%" }}
             animate={{ x: "100%" }}
             transition={{
-              duration: 1.2,
+              duration: 1.0,
               repeat: Infinity,
               ease: "easeInOut",
             }}

@@ -28,19 +28,18 @@ function Tile({
         className={`bg-slate-50 dark:bg-slate-700 shadow-md shadow-gray-200 dark:shadow-gray-900 ${className ?? ""}`}
         style={style}
         onClick={onClick}
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        initial={{ opacity: 0, scale: 0.92, y: 16 }}
         animate={
           isReady
             ? { opacity: 1, scale: 1, y: 0 }
-            : { opacity: 0, scale: 0.9, y: 20 }
+            : { opacity: 0, scale: 0.92, y: 16 }
         }
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ scale: 1.018 }}
         transition={{
-          duration: 0.5,
           delay: isReady ? animationDelay : 0,
           type: "spring",
-          stiffness: 100,
-          damping: 15,
+          stiffness: 250,
+          damping: 20,
         }}
       >
         {children}

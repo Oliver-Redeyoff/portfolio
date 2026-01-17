@@ -81,7 +81,7 @@ function PhotographySection() {
             outerClassName="h-80 flex-grow"
             className="relative h-80 rounded-3xl overflow-hidden bg-center bg-cover"
             style={{ backgroundImage: `url(${photo.image})` }}
-            animationDelay={0.05 + index * 0.05}
+            animationDelay={0.03 + index * 0.04}
           >
             <img className="h-80 opacity-0" src={photo.image} alt={photo.name} />
             <div className="absolute bottom-0.5 left-0.5 px-3 py-1 backdrop-blur-md rounded-md rounded-bl-3xl bg-slate-400 bg-opacity-30 text-slate-50">
