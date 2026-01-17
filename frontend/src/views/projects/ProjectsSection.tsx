@@ -46,13 +46,14 @@ function ProjectsSection() {
     <div className="flex flex-col md:flex-row flex-wrap w-full items-stretch content-start gap-4">
       <div className="w-96 h-80" />
 
-      {projects.map((project) => {
+      {projects.map((project, index) => {
         return (
           <Tile
             key={project.name}
             outerClassName="h-80 w-96 flex-grow"
             className="relative flex flex-col items-start gap-3 h-80 py-4 px-6 rounded-3xl overflow-hidden cursor-pointer bg-center bg-cover"
             style={{ backgroundImage: `url(${project.image})` }}
+            animationDelay={0.05 + index * 0.08}
             onClick={() => {
               window.open(project.link);
             }}

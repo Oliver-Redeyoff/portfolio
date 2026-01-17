@@ -3,6 +3,7 @@ import "./App.css";
 import { useNavigate } from "react-router-dom";
 import RoundAbout from "./components/RoundAbout/RoundAbout";
 import Tile from "./components/Tile/Tile";
+import Loader from "./components/Loader/Loader";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
@@ -11,6 +12,7 @@ import {
   CodeBracketIcon,
   BriefcaseIcon,
 } from "@heroicons/react/24/outline";
+import { LoadingProvider, useLoading } from "./context/LoadingContext";
 
 import AboutSection from "./views/about/AboutSection";
 import PhotographySection from "./views/photography/PhotographySection";
@@ -60,8 +62,9 @@ export const sections: Record<SectionKey, Section> = {
   },
 };
 
-function App() {
+function AppContent() {
   const navigate = useNavigate();
+  const { isLoading } = useLoading();
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [section, setSection] = useState<SectionKey>("About");
 
@@ -71,12 +74,18 @@ function App() {
 
   return (
     <div className={theme}>
-        <div className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800  text-slate-600 dark:text-slate-300 font-mono`}>
+      <Loader isLoading={isLoading} />
+      <div
+        className={`${theme} flex justify-center h-screen w-screen p-10 overflow-y-scroll overflow-x-hidden bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-mono`}
+      >
         <div className="relative flex flex-wrap flex-row gap-6 w-full max-w-7xl h-fit">
-            <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
+          <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
             {/* round about */}
-            <Tile className="h-full aspect-square flex-shrink-0 p-6 rounded-3xl">
-                <RoundAbout
+            <Tile
+              className="h-full aspect-square flex-shrink-0 p-6 rounded-3xl"
+              animationDelay={0}
+            >
+              <RoundAbout
                 options={sections}
                 selectedOption={section}
                 setSelectedOption={setSection}
@@ -84,65 +93,76 @@ function App() {
                 selectedAngle={45}
                 iconPosition={0}
                 theme={theme}
-                />
+              />
             </Tile>
 
             {/* theme and quick links */}
             <motion.div className="flex flex-col items-stretch flex-grow gap-3 h-80">
-                <Tile
+              <Tile
                 outerClassName="flex flex-col items-stretch flex-grow"
                 className="flex items-center justify-center flex-grow rounded-xl cursor-pointer"
+                animationDelay={0.1}
                 onClick={() => {
-                    setTheme(theme === "light" ? "dark" : "light");
+                  setTheme(theme === "light" ? "dark" : "light");
                 }}
-                >
+              >
                 {themes.map((themeOption) => {
-                    return (
+                  return (
                     themeOption === theme && (
-                        <motion.div
+                      <motion.div
                         key={themeOption}
                         initial={{ rotate: 180, opacity: 0 }}
                         animate={{ rotate: 0, opacity: 1 }}
                         exit={{ rotate: -180, opacity: 0 }}
                         transition={{ type: "spring", bounce: 0.5 }}
-                        >
+                      >
                         {themeOption === "light" && (
-                            <SunIcon className="w-6 h-6" />
+                          <SunIcon className="w-6 h-6" />
                         )}
                         {themeOption === "dark" && (
-                            <MoonIcon className="w-6 h-6" />
+                          <MoonIcon className="w-6 h-6" />
                         )}
-                        </motion.div>
+                      </motion.div>
                     )
-                    );
+                  );
                 })}
-                </Tile>
+              </Tile>
 
-                <Tile
+              <Tile
                 outerClassName="flex flex-col items-stretch"
                 className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
-                >
+                animationDelay={0.15}
+              >
                 <CodeBracketIcon className="w-6 h-6" />
-                </Tile>
+              </Tile>
 
-                <Tile
+              <Tile
                 outerClassName="flex flex-col items-stretch"
                 className="flex items-center justify-center h-16 rounded-xl cursor-pointer"
-                >
+                animationDelay={0.2}
+              >
                 <BriefcaseIcon className="w-6 h-6" />
-                </Tile>
+              </Tile>
             </motion.div>
-            </motion.div>
+          </motion.div>
 
-            <AnimatePresence>
+          <AnimatePresence>
             {section === "About" && <AboutSection />}
             {section === "Photography" && <PhotographySection />}
             {section === "Projects" && <ProjectsSection />}
             {section === "Blog" && <BlogSection />}
-            </AnimatePresence>
+          </AnimatePresence>
         </div>
-        </div>
+      </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <LoadingProvider loadingDuration={1800}>
+      <AppContent />
+    </LoadingProvider>
   );
 }
 
