@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.866022b5.css",
-    "main.js": "./static/js/main.972dcba2.js",
+    "main.js": "./static/js/main.fb1f448f.js",
     "static/js/787.cda612ba.chunk.js": "./static/js/787.cda612ba.chunk.js",
     "static/media/creativebook.png": "./static/media/creativebook.7c8ef3f308a584965cad.png",
     "static/media/hawaii_car.jpg": "./static/media/hawaii_car.825eef8aa4db19d6fe9d.jpg",
@@ -28,11 +28,11 @@
     "static/media/cognisess.webp": "./static/media/cognisess.91624c0a40640717e93a.webp",
     "index.html": "./index.html",
     "main.866022b5.css.map": "./static/css/main.866022b5.css.map",
-    "main.972dcba2.js.map": "./static/js/main.972dcba2.js.map",
+    "main.fb1f448f.js.map": "./static/js/main.fb1f448f.js.map",
     "787.cda612ba.chunk.js.map": "./static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.866022b5.css",
-    "static/js/main.972dcba2.js"
+    "static/js/main.fb1f448f.js"
   ]
 }
