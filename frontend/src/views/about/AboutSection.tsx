@@ -12,7 +12,8 @@ import BathUni from "../../assets/bathUni.png";
 
 interface Experience {
   name: string;
-  image: string;
+  image?: string;
+  emoji?: string;
   accentColor: string;
   accentBg: string;
   accentBgHover: string;
@@ -73,7 +74,7 @@ const experiences: Experience[] = [
   },
   {
     name: "Born",
-    image: Bloxd,
+    emoji: "👶",
     accentColor: "bg-rose-500",
     accentBg: "bg-rose-500/10 dark:bg-rose-400/10",
     accentBgHover: "hover:bg-rose-500/20 dark:hover:bg-rose-400/20",
@@ -155,15 +156,19 @@ function AboutSection() {
                     {/* Timeline dot */}
                     <div className="relative z-10 flex-shrink-0">
                       <motion.div
-                        className={`w-10 h-10 rounded-full overflow-hidden border-2 ${isSelected ? "border-amber-400 dark:border-amber-300" : "border-slate-300 dark:border-slate-600"} transition-colors duration-200`}
+                        className={`w-10 h-10 rounded-full overflow-hidden border-2 flex items-center justify-center ${isSelected ? "border-amber-400 dark:border-amber-300" : "border-slate-300 dark:border-slate-600"} transition-colors duration-200 bg-slate-100 dark:bg-slate-600`}
                         animate={{ scale: isSelected ? 1.1 : 1 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
-                        <img
-                          src={experience.image}
-                          alt={experience.name}
-                          className="w-full h-full object-cover bg-slate-50"
-                        />
+                        {experience.image ? (
+                          <img
+                            src={experience.image}
+                            alt={experience.name}
+                            className="w-full h-full object-cover bg-slate-50"
+                          />
+                        ) : (
+                          <span className="text-xl">{experience.emoji}</span>
+                        )}
                       </motion.div>
                     </div>
 
@@ -221,13 +226,17 @@ function AboutSection() {
                   {/* Header */}
                   <div className="flex items-start gap-4 mb-6">
                     <div
-                      className={`w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-700 ${selectedExperience.accentColor.replace("bg-", "ring-")}`}
+                      className={`w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ring-2 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-700 bg-slate-100 dark:bg-slate-600 ${selectedExperience.accentColor.replace("bg-", "ring-")}`}
                     >
-                      <img
-                        src={selectedExperience.image}
-                        alt={selectedExperience.name}
-                        className="w-full h-full object-cover bg-slate-50"
-                      />
+                      {selectedExperience.image ? (
+                        <img
+                          src={selectedExperience.image}
+                          alt={selectedExperience.name}
+                          className="w-full h-full object-cover bg-slate-50"
+                        />
+                      ) : (
+                        <span className="text-2xl">{selectedExperience.emoji}</span>
+                      )}
                     </div>
                     <div>
                       <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
