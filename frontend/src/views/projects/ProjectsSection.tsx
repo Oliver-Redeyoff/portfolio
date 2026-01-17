@@ -5,6 +5,7 @@ import { useLoading } from "../../context/LoadingContext";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 import BloxdBg from "../../assets/bloxd_bg.webp";
+import PocheLogo from "../../assets/poche_logo.png";
 import CreativeBook from "../../assets/creativebook.png";
 import Picky from "../../assets/picky.png";
 import CognisessBg from "../../assets/cognisess_bg.png";
@@ -21,6 +22,17 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    name: "Poche",
+    image: PocheLogo,
+    description:
+      "A modern read-it-later app designed to help you save and organize articles, videos, and web content for later consumption with a clean, distraction-free reading experience.",
+    link: "https://poche.to",
+    accentColor: "bg-orange-500",
+    accentBg: "bg-orange-500/10 dark:bg-orange-400/10",
+    accentBgHover: "hover:bg-orange-500/20 dark:hover:bg-orange-400/20",
+    tags: ["Productivity", "Reading"],
+  },
   {
     name: "Bloxd",
     image: BloxdBg,
@@ -72,20 +84,20 @@ function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
 
   return (
-    <div className="flex flex-col items-start content-start gap-6">
+    <div className="flex flex-col items-start content-start gap-6 w-full">
       <div className="flex flex-col md:flex-row gap-6 w-full">
         <div className="w-96 h-80" />
 
         {/* Project List */}
         <Tile
-            outerClassName="flex-grow h-80 md:w-auto md:flex-shrink-0"
+            outerClassName="flex-grow h-fit md:h-80"
             className="h-full rounded-3xl p-5 md:p-6"
             animationDelay={0.1}
           >
             <h3 className="text-lg font-semibold text-slate-500 dark:text-slate-400 mb-4 tracking-wide uppercase">
               Projects
             </h3>
-            <div className="flex flex-col flex-wrap gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {projects.map((project, index) => {
                 const isSelected = selectedProject.name === project.name;
                 return (
@@ -173,14 +185,14 @@ function ProjectsSection() {
                 >
                   {/* Project Image */}
                   <div
-                    className="h-48 bg-cover bg-center relative"
+                    className="h-96 bg-cover bg-center relative"
                     style={{ backgroundImage: `url(${selectedProject.image})` }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-slate-700 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-slate-50 dark:from-slate-700 to-transparent" />
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 md:p-8 flex flex-col flex-grow -mt-8 relative z-10">
+                  <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10">
                     {/* Header */}
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <div>
