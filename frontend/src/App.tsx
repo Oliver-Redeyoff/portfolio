@@ -82,6 +82,7 @@ function AppContent() {
           <motion.div className="absolute w-full md:w-96 h-80 flex gap-3">
             {/* round about */}
             <Tile
+              outerClassName="flex-shrink-0 h-full aspect-square"
               className="h-full aspect-square flex-shrink-0 p-6 rounded-3xl"
               animationDelay={0}
             >
